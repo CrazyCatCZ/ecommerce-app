@@ -11,6 +11,10 @@ header,
   background-size: cover;
 }
 
+.categories-container {
+  margin-top: 10rem;
+}
+
 @media (max-width: 740px) {
   html,
   body,
