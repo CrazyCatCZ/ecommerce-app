@@ -45,10 +45,10 @@ const ProductDetail = () => {
 
               <form className="d-flex justify-content-left">
                 <input
-                  type="number"
-                  value="1"
-                  aria-label="Search"
                   className="form-control"
+                  defaultValue="1"
+                  type="number"
+                  aria-label="Search"
                   style={{ width: "100px" }}
                 />
                 <button className="btn btn-primary btn-md my-0 p" type="submit">

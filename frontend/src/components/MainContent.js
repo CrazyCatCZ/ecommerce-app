@@ -18,7 +18,7 @@ const MainContent = () => {
                       className="card-img-top"
                       alt=""
                     />
-                    <a>
+                    <a href="/">
                       <div className="mask rgba-white-slight"></div>
                     </a>
                   </div>
@@ -29,9 +29,9 @@ const MainContent = () => {
                     </a>
                     <h5>
                       <strong>
-                        <a href="" className="dark-grey-text">
+                        <a href="/" className="dark-grey-text">
                           Denim shirt
-                          <span className="badge badge-pill danger-color">
+                          <span className="ml-1 badge badge-pill danger-color">
                             NEW
                           </span>
                         </a>
@@ -53,18 +53,18 @@ const MainContent = () => {
                       className="card-img-top"
                       alt=""
                     />
-                    <a>
+                    <a href="/">
                       <div className="mask rgba-white-slight"></div>
                     </a>
                   </div>
 
                   <div className="card-body text-center">
-                    <a href="" className="grey-text">
+                    <a href="/" className="grey-text">
                       <h5>Sport wear</h5>
                     </a>
                     <h5>
                       <strong>
-                        <a href="" className="dark-grey-text">
+                        <a href="/" className="dark-grey-text">
                           Sweatshirt
                         </a>
                       </strong>
@@ -85,20 +85,20 @@ const MainContent = () => {
                       className="card-img-top"
                       alt=""
                     />
-                    <a>
+                    <a href="/">
                       <div className="mask rgba-white-slight"></div>
                     </a>
                   </div>
 
                   <div className="card-body text-center">
-                    <a href="" className="grey-text">
+                    <a href="/" className="grey-text">
                       <h5>Sport wear</h5>
                     </a>
                     <h5>
                       <strong>
-                        <a href="" className="dark-grey-text">
+                        <a href="/" className="dark-grey-text">
                           Grey blouse
-                          <span className="badge badge-pill primary-color">
+                          <span className="ml-1 badge badge-pill primary-color">
                             bestseller
                           </span>
                         </a>
@@ -120,18 +120,18 @@ const MainContent = () => {
                       className="card-img-top"
                       alt=""
                     />
-                    <a>
+                    <a href="/">
                       <div className="mask rgba-white-slight"></div>
                     </a>
                   </div>
 
                   <div className="card-body text-center">
-                    <a href="" className="grey-text">
+                    <a href="/" className="grey-text">
                       <h5>Outwear</h5>
                     </a>
                     <h5>
                       <strong>
-                        <a href="" className="dark-grey-text">
+                        <a href="/" className="dark-grey-text">
                           Black jacket
                         </a>
                       </strong>
@@ -154,20 +154,20 @@ const MainContent = () => {
                       className="card-img-top"
                       alt=""
                     />
-                    <a>
+                    <a href="/">
                       <div className="mask rgba-white-slight"></div>
                     </a>
                   </div>
 
                   <div className="card-body text-center">
-                    <a href="" className="grey-text">
+                    <a href="/" className="grey-text">
                       <h5>Shirt</h5>
                     </a>
                     <h5>
                       <strong>
-                        <a href="" className="dark-grey-text">
+                        <a href="/" className="dark-grey-text">
                           Denim shirt
-                          <span className="badge badge-pill danger-color">
+                          <span className="ml-1 badge badge-pill danger-color">
                             NEW
                           </span>
                         </a>
@@ -189,17 +189,17 @@ const MainContent = () => {
                       className="card-img-top"
                       alt=""
                     />
-                    <a>
+                    <a href="/">
                       <div className="mask rgba-white-slight"></div>
                     </a>
                   </div>
                   <div className="card-body text-center">
-                    <a href="" className="grey-text">
+                    <a href="/" className="grey-text">
                       <h5>Sport wear</h5>
                     </a>
                     <h5>
                       <strong>
-                        <a href="" className="dark-grey-text">
+                        <a href="/" className="dark-grey-text">
                           Sweatshirt
                         </a>
                       </strong>
@@ -220,20 +220,20 @@ const MainContent = () => {
                       className="card-img-top"
                       alt=""
                     />
-                    <a>
+                    <a href="/">
                       <div className="mask rgba-white-slight"></div>
                     </a>
                   </div>
 
                   <div className="card-body text-center">
-                    <a href="" className="grey-text">
+                    <a href="/" className="grey-text">
                       <h5>Sport wear</h5>
                     </a>
                     <h5>
                       <strong>
-                        <a href="" className="dark-grey-text">
+                        <a href="/" className="dark-grey-text">
                           Grey blouse
-                          <span className="badge badge-pill primary-color">
+                          <span className="ml-1 badge badge-pill primary-color">
                             bestseller
                           </span>
                         </a>
@@ -255,18 +255,18 @@ const MainContent = () => {
                       className="card-img-top"
                       alt=""
                     />
-                    <a>
+                    <a href="/">
                       <div className="mask rgba-white-slight"></div>
                     </a>
                   </div>
 
                   <div className="card-body text-center">
-                    <a href="" className="grey-text">
+                    <a href="/" className="grey-text">
                       <h5>Outwear</h5>
                     </a>
                     <h5>
                       <strong>
-                        <a href="" className="dark-grey-text">
+                        <a href="/" className="dark-grey-text">
                           Black jacket
                         </a>
                       </strong>
