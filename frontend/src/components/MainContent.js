@@ -13,7 +13,6 @@ const MainContent = () => {
                 <div className="card">
                   <div className="view overlay">
                     <img
-                      onClick={() => console.log("test")}
                       src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg"
                       className="card-img-top"
                       alt=""

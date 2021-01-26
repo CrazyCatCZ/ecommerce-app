@@ -5,6 +5,7 @@ import MainContent from "./components/MainContent";
 import Copyright from "./components/Copyright";
 import Pagination from "./components/Pagination";
 import ProductDetail from "./components/ProductDetail";
+import OrderSummary from "./components/OrderSummary";
 import "./App.css";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Navbar />
       <main>
         <Switch>
+          <Route path="/order-summary" component={OrderSummary} />
           <Route path="/product/:id" component={ProductDetail} />
           <Route path="/">
             <>
