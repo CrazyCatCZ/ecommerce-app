@@ -22,7 +22,7 @@ function App() {
           </Route>
         </Switch>
       </main>
-      <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+      <footer className="page-footer text-center font-small mt-4 wow fadeIn">
         <Copyright />
       </footer>
     </div>
