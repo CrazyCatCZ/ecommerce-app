@@ -16,15 +16,9 @@ const ProductDetail = () => {
           <div className="col-md-6 mb-4">
             <div className="p-4">
               <div className="mb-3">
-                <a href="/">
-                  <span className="badge purple mr-1">Category 2</span>
-                </a>
-                <a href="/">
-                  <span className="badge blue mr-1">New</span>
-                </a>
-                <a href="/">
-                  <span className="badge red mr-1">Bestseller</span>
-                </a>
+                <span className="badge purple mr-1">Category 2</span>
+                <span className="badge blue mr-1">New</span>
+                <span className="badge red mr-1">Bestseller</span>
               </div>
 
               <p className="lead">

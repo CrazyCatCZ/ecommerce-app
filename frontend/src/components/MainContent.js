@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MainContent = () => {
   return (
@@ -17,23 +18,23 @@ const MainContent = () => {
                       className="card-img-top"
                       alt=""
                     />
-                    <a href="/">
+                    <Link to="/product/1">
                       <div className="mask rgba-white-slight"></div>
-                    </a>
+                    </Link>
                   </div>
 
                   <div className="card-body text-center">
-                    <a href="/" className="grey-text">
+                    <Link to="product/1" className="grey-text">
                       <h5>Shirt</h5>
-                    </a>
+                    </Link>
                     <h5>
                       <strong>
-                        <a href="/" className="dark-grey-text">
+                        <Link to="product/1" className="dark-grey-text">
                           Denim shirt
                           <span className="ml-1 badge badge-pill danger-color">
                             NEW
                           </span>
-                        </a>
+                        </Link>
                       </strong>
                     </h5>
 
@@ -52,20 +53,20 @@ const MainContent = () => {
                       className="card-img-top"
                       alt=""
                     />
-                    <a href="/">
+                    <Link to="product/1">
                       <div className="mask rgba-white-slight"></div>
-                    </a>
+                    </Link>
                   </div>
 
                   <div className="card-body text-center">
-                    <a href="/" className="grey-text">
+                    <Link to="product/1" className="grey-text">
                       <h5>Sport wear</h5>
-                    </a>
+                    </Link>
                     <h5>
                       <strong>
-                        <a href="/" className="dark-grey-text">
+                        <Link to="product/1" className="dark-grey-text">
                           Sweatshirt
-                        </a>
+                        </Link>
                       </strong>
                     </h5>
 
@@ -84,23 +85,23 @@ const MainContent = () => {
                       className="card-img-top"
                       alt=""
                     />
-                    <a href="/">
+                    <Link to="product/1">
                       <div className="mask rgba-white-slight"></div>
-                    </a>
+                    </Link>
                   </div>
 
                   <div className="card-body text-center">
-                    <a href="/" className="grey-text">
+                    <Link to="product/1" className="grey-text">
                       <h5>Sport wear</h5>
-                    </a>
+                    </Link>
                     <h5>
                       <strong>
-                        <a href="/" className="dark-grey-text">
+                        <Link to="product/1" className="dark-grey-text">
                           Grey blouse
                           <span className="ml-1 badge badge-pill primary-color">
                             bestseller
                           </span>
-                        </a>
+                        </Link>
                       </strong>
                     </h5>
 
@@ -119,20 +120,20 @@ const MainContent = () => {
                       className="card-img-top"
                       alt=""
                     />
-                    <a href="/">
+                    <Link to="product/1">
                       <div className="mask rgba-white-slight"></div>
-                    </a>
+                    </Link>
                   </div>
 
                   <div className="card-body text-center">
-                    <a href="/" className="grey-text">
+                    <Link to="product/1" className="grey-text">
                       <h5>Outwear</h5>
-                    </a>
+                    </Link>
                     <h5>
                       <strong>
-                        <a href="/" className="dark-grey-text">
+                        <Link to="product/1" className="dark-grey-text">
                           Black jacket
-                        </a>
+                        </Link>
                       </strong>
                     </h5>
 
@@ -153,23 +154,23 @@ const MainContent = () => {
                       className="card-img-top"
                       alt=""
                     />
-                    <a href="/">
+                    <Link to="product/1">
                       <div className="mask rgba-white-slight"></div>
-                    </a>
+                    </Link>
                   </div>
 
                   <div className="card-body text-center">
-                    <a href="/" className="grey-text">
+                    <Link to="product/1" className="grey-text">
                       <h5>Shirt</h5>
-                    </a>
+                    </Link>
                     <h5>
                       <strong>
-                        <a href="/" className="dark-grey-text">
+                        <Link to="product/1" className="dark-grey-text">
                           Denim shirt
                           <span className="ml-1 badge badge-pill danger-color">
                             NEW
                           </span>
-                        </a>
+                        </Link>
                       </strong>
                     </h5>
 
@@ -188,19 +189,19 @@ const MainContent = () => {
                       className="card-img-top"
                       alt=""
                     />
-                    <a href="/">
+                    <Link to="product/1">
                       <div className="mask rgba-white-slight"></div>
-                    </a>
+                    </Link>
                   </div>
                   <div className="card-body text-center">
-                    <a href="/" className="grey-text">
+                    <Link to="product/1" className="grey-text">
                       <h5>Sport wear</h5>
-                    </a>
+                    </Link>
                     <h5>
                       <strong>
-                        <a href="/" className="dark-grey-text">
+                        <Link to="product/1" className="dark-grey-text">
                           Sweatshirt
-                        </a>
+                        </Link>
                       </strong>
                     </h5>
 
@@ -219,23 +220,23 @@ const MainContent = () => {
                       className="card-img-top"
                       alt=""
                     />
-                    <a href="/">
+                    <Link to="product/1">
                       <div className="mask rgba-white-slight"></div>
-                    </a>
+                    </Link>
                   </div>
 
                   <div className="card-body text-center">
-                    <a href="/" className="grey-text">
+                    <Link to="product/1" className="grey-text">
                       <h5>Sport wear</h5>
-                    </a>
+                    </Link>
                     <h5>
                       <strong>
-                        <a href="/" className="dark-grey-text">
+                        <Link to="product/1" className="dark-grey-text">
                           Grey blouse
                           <span className="ml-1 badge badge-pill primary-color">
                             bestseller
                           </span>
-                        </a>
+                        </Link>
                       </strong>
                     </h5>
 
@@ -254,20 +255,20 @@ const MainContent = () => {
                       className="card-img-top"
                       alt=""
                     />
-                    <a href="/">
+                    <Link to="product/1">
                       <div className="mask rgba-white-slight"></div>
-                    </a>
+                    </Link>
                   </div>
 
                   <div className="card-body text-center">
-                    <a href="/" className="grey-text">
+                    <Link to="product/1" className="grey-text">
                       <h5>Outwear</h5>
-                    </a>
+                    </Link>
                     <h5>
                       <strong>
-                        <a href="/" className="dark-grey-text">
+                        <Link to="product/1" className="dark-grey-text">
                           Black jacket
-                        </a>
+                        </Link>
                       </strong>
                     </h5>
 

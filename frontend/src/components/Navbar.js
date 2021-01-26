@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div>
       <nav className="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
         <div className="container">
-          <a className="navbar-brand waves-effect" href="/">
+          <Link className="navbar-brand waves-effect" to="/">
             <strong className="blue-text">E-commerce</strong>
-          </a>
+          </Link>
 
           <button
             className="navbar-toggler"
@@ -24,47 +25,47 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
-                <a className="nav-link waves-effect" href="/">
+                <Link className="nav-link waves-effect" to="/">
                   Home
                   <span className="sr-only">(current)</span>
-                </a>
+                </Link>
               </li>
             </ul>
 
             <ul className="navbar-nav nav-flex-icons">
               <li className="nav-item">
-                <a href="/" className="nav-link waves-effect">
+                <Link to="/order-summary" className="nav-link waves-effect">
                   <span className="badge red z-depth-1 mr-1">0</span>
                   <i className="fas fa-shopping-cart"></i>
                   <span className="clearfix d-none d-sm-inline-block">
                     {" "}
                     Cart{" "}
                   </span>
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link waves-effect" href="/">
+                <Link className="nav-link waves-effect" to="/">
                   <span className="clearfix d-none d-sm-inline-block">
                     {" "}
                     Logout{" "}
                   </span>
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link waves-effect" href="/">
+                <Link className="nav-link waves-effect" to="/login">
                   <span className="clearfix d-none d-sm-inline-block">
                     {" "}
                     Login{" "}
                   </span>
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link waves-effect" href="/">
+                <Link className="nav-link waves-effect" to="/register">
                   <span className="clearfix d-none d-sm-inline-block">
                     {" "}
-                    Signup{" "}
+                    Register{" "}
                   </span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

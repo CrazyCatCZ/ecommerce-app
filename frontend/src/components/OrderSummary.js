@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const OrderSummary = () => {
   return (
@@ -18,48 +19,43 @@ const OrderSummary = () => {
             </thead>
             <tbody>
               <tr>
-                <th scope="row">10</th>
+                <th scope="row">1</th>
                 <td>20</td>
                 <td>10</td>
                 <td>
-                  <a href="/">
-                    <i className="fas fa-minus mr-2"></i>
-                  </a>
-                  3
-                  <a href="/">
-                    <i className="fas fa-plus ml-2"></i>
-                  </a>
+                  <i className="fas fa-minus mr-2"></i>3
+                  <i className="fas fa-plus ml-2"></i>
                 </td>
                 <td>
                   $10
-                  <a style={{ color: "red" }} href="/">
+                  <Link style={{ color: "red" }} to="/">
                     <i className="fas fa-trash float-right"></i>
-                  </a>
+                  </Link>
                 </td>
               </tr>
               <tr>
-                <td colspan="5">Your cart is empty</td>
+                <td colSpan="5">Your cart is empty</td>
               </tr>
 
               <tr>
-                <td colspan="4">
+                <td colSpan="4">
                   <b>Order Total</b>
                 </td>
                 <td>
-                  <b>10</b>
+                  <b>10$</b>
                 </td>
               </tr>
               <tr>
-                <td colspan="5">
-                  <a
+                <td colSpan="5">
+                  <Link
                     className="btn btn-warning float-right ml-2"
-                    href="/checkout/"
+                    to="/checkout"
                   >
                     Proceed to checkout
-                  </a>
-                  <a className="btn btn-primary float-right" href="/">
+                  </Link>
+                  <Link className="btn btn-primary float-right" to="/">
                     Continue shopping
-                  </a>
+                  </Link>
                 </td>
               </tr>
             </tbody>
