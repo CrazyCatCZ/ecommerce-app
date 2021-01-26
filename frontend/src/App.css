@@ -15,8 +15,20 @@ header,
   margin-top: 10rem;
 }
 
-.order-summary-container {
+.product-container {
+  margin-top: 5rem;
+}
+
+.order-summary-container,
+.checkout-container {
   margin-top: 6rem;
+}
+
+.cart-container {
+  display: "flex" !important;
+  justify-content: "center" !important;
+  align-items: "center" !important;
+  margin: "auto" !important;
 }
 
 @media (max-width: 740px) {
