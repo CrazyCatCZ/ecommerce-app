@@ -1,8 +1,9 @@
 import graphene
 from users.schema import UserQuery, UserMutation 
+from products.schema import ProductQuery 
 
 
-class Query(UserQuery, graphene.ObjectType):
+class Query(UserQuery, ProductQuery, graphene.ObjectType):
     pass
 
 
