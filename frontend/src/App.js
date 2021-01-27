@@ -8,6 +8,7 @@ import ProductDetail from "./components/ProductDetail";
 import OrderSummary from "./components/OrderSummary";
 import Checkout from "./components/Checkout";
 import Login from "./components/Authentication/Login";
+import Register from "./components/Authentication/Register";
 import "./App.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <main>
         <Switch>
           <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
           <Route path="/checkout" component={Checkout} />
           <Route path="/order-summary" component={OrderSummary} />
           <Route path="/product/:id" component={ProductDetail} />
