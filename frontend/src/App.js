@@ -30,7 +30,7 @@ function App() {
   return (
     <div>
       <main>
-        {user && loading === false ? (
+        {true && loading === false ? (
           <>
             <Navbar />
             <Switch>
