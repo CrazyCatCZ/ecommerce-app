@@ -7,6 +7,7 @@ import Pagination from "./components/Pagination";
 import ProductDetail from "./components/ProductDetail";
 import OrderSummary from "./components/OrderSummary";
 import Checkout from "./components/Checkout";
+import Login from "./components/Authentication/Login";
 import "./App.css";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <main>
         <Switch>
+          <Route path="/login" component={Login} />
           <Route path="/checkout" component={Checkout} />
           <Route path="/order-summary" component={OrderSummary} />
           <Route path="/product/:id" component={ProductDetail} />
@@ -22,13 +24,11 @@ function App() {
             <>
               <MainContent />
               <Pagination />
+              <Copyright />
             </>
           </Route>
         </Switch>
       </main>
-      <footer className="page-footer text-center font-small mt-4 wow fadeIn">
-        <Copyright />
-      </footer>
     </div>
   );
 }
