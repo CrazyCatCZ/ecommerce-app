@@ -2,11 +2,11 @@ import graphene
 from users.schema import UserQuery, UserMutation 
 
 
-class Query(graphene.ObjectType):
-    hello = graphene.String(default_value="Hi!")
+class Query(UserQuery, graphene.ObjectType):
+    pass
 
 
-class Mutation(UserQuery, UserMutation, graphene.ObjectType):
+class Mutation(UserMutation, graphene.ObjectType):
     pass
 
 

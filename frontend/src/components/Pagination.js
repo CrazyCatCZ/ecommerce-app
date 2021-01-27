@@ -5,7 +5,7 @@ const Pagination = () => {
   return (
     <div>
       <nav aria-label="Page navigation">
-        <ul className="pagination pagination-lg justify-content-center">
+        <ul className="pagination justify-content-center">
           <li className="page-item ">
             <Link className="page-link" to="/" aria-disabled="true">
               Previous

@@ -3,6 +3,12 @@ import os
 SECRET_KEY = os.environ.get('ECOMMERCE_APP_SECRET_KEY')
 DEBUG = True
 
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'awesome-todoapp.herokuapp.com',
+    'www.awesome-todoapp.herokuapp.com'
+]
+
 # Corsheaders
 #CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [

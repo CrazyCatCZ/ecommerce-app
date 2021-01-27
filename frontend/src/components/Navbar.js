@@ -53,7 +53,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link waves-effect" to="/">
+                <Link className="nav-link waves-effect">
                   <span
                     onClick={handleOnLogout}
                     className="clearfix d-none d-sm-inline-block"
