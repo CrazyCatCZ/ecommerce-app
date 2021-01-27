@@ -1,7 +1,16 @@
 import React from "react";
+import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
+import { USER_DELETE_TOKENS_MUTATION } from "./Api/user";
 
 const Navbar = () => {
+  const [deleteTokens] = useMutation(USER_DELETE_TOKENS_MUTATION);
+
+  const handleOnLogout = async () => {
+    await deleteTokens();
+    window.location.reload(); // Reset page
+  };
+
   return (
     <div>
       <nav className="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
@@ -45,7 +54,10 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <Link className="nav-link waves-effect" to="/">
-                  <span className="clearfix d-none d-sm-inline-block">
+                  <span
+                    onClick={handleOnLogout}
+                    className="clearfix d-none d-sm-inline-block"
+                  >
                     {" "}
                     Logout{" "}
                   </span>
