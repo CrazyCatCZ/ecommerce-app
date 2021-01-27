@@ -8,6 +8,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'users',
+    'products',
 
     # Pip packages
     'corsheaders',
