@@ -10,6 +10,7 @@ INSTALLED_APPS = [
     'users',
 
     # Pip packages
+    'corsheaders',
     "graphene_django",
 ]
 
