@@ -24,7 +24,7 @@ const Navbar = () => {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
+              <li className="nav-item">
                 <Link className="nav-link waves-effect" to="/">
                   Home
                   <span className="sr-only">(current)</span>
@@ -48,22 +48,6 @@ const Navbar = () => {
                   <span className="clearfix d-none d-sm-inline-block">
                     {" "}
                     Logout{" "}
-                  </span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link waves-effect" to="/login">
-                  <span className="clearfix d-none d-sm-inline-block">
-                    {" "}
-                    Login{" "}
-                  </span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link waves-effect" to="/register">
-                  <span className="clearfix d-none d-sm-inline-block">
-                    {" "}
-                    Register{" "}
                   </span>
                 </Link>
               </li>
