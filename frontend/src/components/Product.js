@@ -1,13 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Product = () => {
+const Product = ({ id, title, category, price, imageName, label }) => {
+  let labelClass;
+
+  if (label) {
+    labelClass = label === "NEW" ? "danger-color" : "primary-color";
+  }
+
+  console.log(imageName);
+
   return (
     <div className="col-lg-3 col-md-6 mb-4">
       <div className="card">
         <div className="view overlay">
           <img
-            src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg"
+            src={`${process.env.PUBLIC_URL}/images${imageName}`}
             className="card-img-top"
             alt=""
           />
@@ -18,19 +26,21 @@ const Product = () => {
 
         <div className="card-body text-center">
           <Link to="product/1" className="grey-text">
-            <h5>Shirt</h5>
+            <h5>{category}</h5>
           </Link>
           <h5>
             <strong>
               <Link to="product/1" className="dark-grey-text">
-                Denim shirt
-                <span className="ml-1 badge badge-pill danger-color">NEW</span>
+                {title}
+                <span className={`ml-1 badge badge-pill ${labelClass}`}>
+                  {label}
+                </span>
               </Link>
             </strong>
           </h5>
 
           <h4 className="font-weight-bold blue-text">
-            <strong>120$</strong>
+            <strong>{price}$</strong>
           </h4>
         </div>
       </div>

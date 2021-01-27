@@ -1,12 +1,14 @@
 import { gql } from "@apollo/client";
 
-const PRODUCT_LIST_QUERY = gql`
+export const PRODUCT_LIST_QUERY = gql`
   query {
     allProducts {
+      id
       title
       category
       price
       image
+      imageName
       label
     }
   }

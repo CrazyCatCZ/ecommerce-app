@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('graphql/', jwt_cookie(GraphQLView.as_view(graphiql=True))),
+    path('graphql/', csrf_exempt(jwt_cookie(GraphQLView.as_view(graphiql=True)))),
     path('robots.txt', TemplateView.as_view(template_name='robots.txt')),
     re_path('.*', TemplateView.as_view(template_name='index.html')),
 ]
