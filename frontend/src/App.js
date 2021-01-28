@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar";
 import MainContent from "./components/MainContent";
 import Copyright from "./components/Copyright";
 import Pagination from "./components/Pagination";
-import ProductDetail from "./components/ProductDetail";
+import ProductDetail from "./components/ProductDetail/ProductDetail";
 import OrderSummary from "./components/OrderSummary";
 import Checkout from "./components/Checkout";
 import Login from "./components/Authentication/Login";

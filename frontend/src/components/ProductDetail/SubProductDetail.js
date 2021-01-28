@@ -1,13 +1,21 @@
 import React from "react";
 
-const ProductDetail = () => {
+const PUBLIC_FOLDER = process.env.PUBLIC_URL;
+
+const SubProductDetail = ({
+  product: {
+    product: { imageName, price, label, labelColor },
+  },
+}) => {
+  console.log(labelColor);
+
   return (
     <div className="product-container">
       <div className="container dark-grey-text mt-5">
         <div className="row wow fadeIn">
           <div className="col-md-6 mb-4">
             <img
-              src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/14.jpg"
+              src={`${PUBLIC_FOLDER}/static/images/${imageName}`}
               className="img-fluid"
               alt=""
             />
@@ -15,17 +23,13 @@ const ProductDetail = () => {
 
           <div className="col-md-6 mb-4">
             <div className="p-4">
-              <div className="mb-3">
-                <span className="badge purple mr-1">Category 2</span>
-                <span className="badge blue mr-1">New</span>
-                <span className="badge red mr-1">Bestseller</span>
-              </div>
-
-              <p className="lead">
-                <span className="mr-1">
-                  <del>$200</del>
-                </span>
-                <span>$100</span>
+              <p className="lead d-flex align-items-center">
+                <b className="font-weight-bold">${price}</b>
+                {label ? (
+                  <span className={`badge ${labelColor.toLowerCase()} ml-3`}>
+                    {label}
+                  </span>
+                ) : null}
               </p>
 
               <p className="lead font-weight-bold">Description</p>
@@ -99,4 +103,4 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail;
+export default SubProductDetail;

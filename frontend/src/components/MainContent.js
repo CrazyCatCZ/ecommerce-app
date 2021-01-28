@@ -1,10 +1,11 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { Link } from "react-router-dom";
 import { PRODUCT_LIST_QUERY } from "./Api/product";
 import Product from "./Product";
 
 const MainContent = () => {
+  let labelClass;
+
   const { data: products } = useQuery(PRODUCT_LIST_QUERY);
 
   return (
@@ -19,6 +20,11 @@ const MainContent = () => {
                 ({ id, title, category, price, imageName, label }) => {
                   category = category.replace("_", " ");
 
+                  if (label) {
+                    labelClass =
+                      label === "NEW" ? "danger-color" : "primary-color";
+                  }
+
                   return (
                     <Product
                       key={id}
@@ -28,6 +34,7 @@ const MainContent = () => {
                       price={price}
                       imageName={imageName}
                       label={label}
+                      labelClass={labelClass}
                     />
                   );
                 }
