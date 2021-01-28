@@ -9,6 +9,7 @@ INSTALLED_APPS = [
 
     'users',
     'products',
+    'orders',
 
     # Pip packages
     'corsheaders',
