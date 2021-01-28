@@ -21,7 +21,8 @@ class OrderQuery(graphene.ObjectType):
         return Order.objects.filter(user=user)
 
     def resolve_total_price_of_orders(self, info):
-        user = info.context.user
+        #user = info.context.user
+        user = User.objects.get(username='admin')
         user_orders = Order.objects.filter(user=user)
         total_price = 0
 

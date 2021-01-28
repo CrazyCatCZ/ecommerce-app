@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const OrderBottom = () => {
+const OrderBottom = ({ totalPrice: { totalPriceOfOrders } }) => {
   return (
     <>
       <tr>
@@ -9,7 +9,7 @@ const OrderBottom = () => {
           <b>Order Total</b>
         </td>
         <td>
-          <b>10$</b>
+          <b>{totalPriceOfOrders}$</b>
         </td>
       </tr>
       <tr>

@@ -12,3 +12,9 @@ export const ORDER_USER_LIST_QUERY = gql`
     }
   }
 `;
+
+export const ORDER_TOTAL_PRICE_QUERY = gql`
+  query {
+    totalPriceOfOrders
+  }
+`;

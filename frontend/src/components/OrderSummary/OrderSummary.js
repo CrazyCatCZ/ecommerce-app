@@ -1,16 +1,19 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { ORDER_USER_LIST_QUERY } from "../Api/order";
+import { ORDER_USER_LIST_QUERY, ORDER_TOTAL_PRICE_QUERY } from "../Api/order";
 import ItemOrder from "./ItemOrder";
 import EmptyCart from "./EmptyCart";
 import OrderBottom from "./OrderBottom";
 
 const OrderSummary = () => {
   const { data: orders } = useQuery(ORDER_USER_LIST_QUERY);
+  const { data: totalPrice } = useQuery(ORDER_TOTAL_PRICE_QUERY);
+
+  console.log(totalPrice);
 
   return (
     <>
-      {orders ? (
+      {orders && totalPrice ? (
         <div className="order-summary-container">
           <div className="container">
             <div className="table- responsive text-nowrap">
@@ -44,7 +47,7 @@ const OrderSummary = () => {
                           );
                         }
                       )}
-                      <OrderBottom />
+                      <OrderBottom totalPrice={totalPrice} />
                     </>
                   ) : (
                     <EmptyCart />
