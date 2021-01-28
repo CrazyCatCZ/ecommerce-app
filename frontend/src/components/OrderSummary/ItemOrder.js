@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ItemOrder = ({ itemNumber, title, price, quantity }) => {
+  const totalItemPrice = price * quantity;
+
   return (
     <>
       <tr>
@@ -14,7 +16,7 @@ const ItemOrder = ({ itemNumber, title, price, quantity }) => {
           <i className="fas fa-plus ml-2"></i>
         </td>
         <td>
-          $10
+          {totalItemPrice}
           <Link style={{ color: "red" }} to="/">
             <i className="fas fa-trash float-right"></i>
           </Link>
