@@ -1,11 +1,14 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { ORDER_USER_LIST_QUERY } from "../Api/order";
-import FilledCart from "./FilledCart";
+import ItemOrder from "./ItemOrder";
 import EmptyCart from "./EmptyCart";
+import OrderBottom from "./OrderBottom";
 
 const OrderSummary = () => {
   const { data: orders } = useQuery(ORDER_USER_LIST_QUERY);
+
+  console.log(orders);
 
   return (
     <div className="order-summary-container">
@@ -22,7 +25,18 @@ const OrderSummary = () => {
                 <th scope="col">Total Item Price</th>
               </tr>
             </thead>
-            <tbody>{orders ? <FilledCart /> : <EmptyCart />}</tbody>
+            <tbody>
+              {orders ? (
+                <>
+                  {orders.userOrders.map(({ id, product }) => {
+                    return <ItemOrder key={id} />;
+                  })}
+                  <OrderBottom />
+                </>
+              ) : (
+                <EmptyCart />
+              )}
+            </tbody>
           </table>
         </div>
       </div>

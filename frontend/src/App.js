@@ -15,7 +15,7 @@ import Register from "./components/Authentication/Register";
 import "./App.css";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState("admin");
   const { data: meQuery, loading } = useQuery(USER_ME_QUERY, {
     fetchPolicy: "network-only",
   });
@@ -30,7 +30,7 @@ function App() {
   return (
     <div>
       <main>
-        {true && loading === false ? (
+        {user && loading === false ? (
           <>
             <Navbar />
             <Switch>

@@ -8,7 +8,7 @@ class Order(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
 
-    def calculate_final_price(self):
+    def calculate_total_price(self):
         return self.quantity * self.product.price
 
     def __str__(self):
