@@ -8,7 +8,7 @@ import MainContent from "./components/MainContent";
 import Copyright from "./components/Copyright";
 import Pagination from "./components/Pagination";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
-import OrderSummary from "./components/OrderSummary";
+import OrderSummary from "./components/OrderSummary/OrderSummary";
 import Checkout from "./components/Checkout";
 import Login from "./components/Authentication/Login";
 import Register from "./components/Authentication/Register";
