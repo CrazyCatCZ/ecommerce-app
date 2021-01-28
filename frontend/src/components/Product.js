@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+const PUBLIC_FOLDER = process.env.PUBLIC_URL;
+
 const Product = ({ id, title, category, price, imageName, label }) => {
   let labelClass;
 
@@ -8,14 +10,14 @@ const Product = ({ id, title, category, price, imageName, label }) => {
     labelClass = label === "NEW" ? "danger-color" : "primary-color";
   }
 
-  console.log(imageName);
+  console.log(PUBLIC_FOLDER);
 
   return (
     <div className="col-lg-3 col-md-6 mb-4">
       <div className="card">
         <div className="view overlay">
           <img
-            src={`${process.env.PUBLIC_URL}/images${imageName}`}
+            src={`${PUBLIC_FOLDER}/static/images/${imageName}`}
             className="card-img-top"
             alt=""
           />

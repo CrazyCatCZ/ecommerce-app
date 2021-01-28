@@ -19,7 +19,7 @@ class Product(models.Model):
     category = models.CharField(max_length=15, choices=CATEGORY_CHOICES)
     price = models.IntegerField()
     description = models.TextField(blank=True, null=True)
-    image = models.ImageField(upload_to='frontend/images', default='default.jpg')
+    image = models.ImageField(upload_to='frontend/assets/images', default='default.jpg')
     imageName = models.CharField(max_length=20, default='default.jpg')
     label = models.CharField(
         max_length=10, choices=LABEL_CHOICES, blank=True, null=True
