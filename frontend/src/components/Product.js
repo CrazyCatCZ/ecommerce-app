@@ -10,8 +10,6 @@ const Product = ({ id, title, category, price, imageName, label }) => {
     labelClass = label === "NEW" ? "danger-color" : "primary-color";
   }
 
-  console.log(PUBLIC_FOLDER);
-
   return (
     <div className="col-lg-3 col-md-6 mb-4">
       <div className="card">
