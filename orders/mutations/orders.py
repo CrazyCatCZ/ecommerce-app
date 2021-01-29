@@ -26,3 +26,18 @@ class CreateOrder(graphene.Mutation):
         order.save()
 
         return CreateOrder(order)
+
+
+class DeleteOrder(graphene.Mutation):
+    class Arguments:
+        order_id = graphene.ID()
+
+    message = graphene.String()
+
+    def mutate(cls, info, order_id):
+        user = info.context.user
+        order = Order.objects.get(id=order_id)
+        order.delete()
+
+        message = 'Success!'
+        return DeleteOrder(message)
