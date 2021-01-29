@@ -31,6 +31,10 @@ header,
   margin: "auto" !important;
 }
 
+.counter-icon {
+  cursor: pointer;
+}
+
 @media (max-width: 740px) {
   html,
   body,
