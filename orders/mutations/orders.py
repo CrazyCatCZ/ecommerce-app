@@ -31,10 +31,11 @@ class DeleteOrder(graphene.Mutation):
     class Arguments:
         order_id = graphene.ID()
 
-    order = graphene.Field(OrderType)
+    message = graphene.String()
 
     def mutate(cls, info, order_id):
-        user = info.context.user
+        #user = info.context.user
+        user = User.objects.get(username="admin")
         order = Order.objects.get(id=order_id)
         order.delete()
 

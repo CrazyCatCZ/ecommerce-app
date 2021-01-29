@@ -37,6 +37,7 @@ const OrderSummary = () => {
                           return (
                             <ItemOrder
                               key={id}
+                              id={id}
                               itemNumber={index + 1}
                               title={title}
                               price={price}

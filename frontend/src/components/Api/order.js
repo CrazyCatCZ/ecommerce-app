@@ -28,7 +28,6 @@ export const ORDER_TOTAL_PRICE_QUERY = gql`
 `;
 
 // Mutations
-
 export const ORDER_CREATE_MUTATION = gql`
   mutation($productId: ID!) {
     createOrder(productId: $productId) {
@@ -37,6 +36,14 @@ export const ORDER_CREATE_MUTATION = gql`
           title
         }
       }
+    }
+  }
+`;
+
+export const ORDER_DELETE_MUTATION = gql`
+  mutation($orderId: ID!) {
+    deleteOrder(orderId: $orderId) {
+      message
     }
   }
 `;
