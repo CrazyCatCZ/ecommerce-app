@@ -50,7 +50,9 @@ class IncreaseQuantity(graphene.Mutation):
     order = graphene.Field(OrderType)
 
     def mutate(cls, info, order_id):
-        user = info.context.user
+        print(order_id)
+        #user = info.context.user
+        user = User.objects.get(username="admin")
         order = Order.objects.get(id=order_id)
 
         order.quantity += 1
@@ -66,7 +68,8 @@ class DecreaseQuantity(graphene.Mutation):
     order = graphene.Field(OrderType)
 
     def mutate(cls, info, order_id):
-        user = info.context.user
+        #user = info.context.user
+        user = User.objects.get(username="admin")
         order = Order.objects.get(id=order_id)
 
         order.quantity -= 1

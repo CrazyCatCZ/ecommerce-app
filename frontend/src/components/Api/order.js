@@ -47,3 +47,23 @@ export const ORDER_DELETE_MUTATION = gql`
     }
   }
 `;
+
+export const ORDER_INCREASE_QUANTITY_MUTATION = gql`
+  mutation($orderId: ID!) {
+    increaseQuantity(orderId: $orderId) {
+      order {
+        id
+      }
+    }
+  }
+`;
+
+export const ORDER_DECREASE_QUANTITY_MUTATION = gql`
+  mutation($orderId: ID!) {
+    decreaseQuantity(orderId: $orderId) {
+      order {
+        id
+      }
+    }
+  }
+`;
