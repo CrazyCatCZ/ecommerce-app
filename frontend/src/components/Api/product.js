@@ -17,6 +17,8 @@ export const PRODUCT_LIST_QUERY = gql`
 export const PRODUCT_DETAIL_QUERY = gql`
   query($id: ID!) {
     product(id: $id) {
+      id
+      title
       price
       description
       imageName

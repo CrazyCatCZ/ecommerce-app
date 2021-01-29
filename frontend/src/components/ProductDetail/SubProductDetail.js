@@ -1,12 +1,23 @@
 import React from "react";
+import { useMutation } from "@apollo/client";
+import { useHistory } from "react-router-dom";
+import { ORDER_CREATE_MUTATION } from "../Api/order";
 
 const PUBLIC_FOLDER = process.env.PUBLIC_URL;
 
 const SubProductDetail = ({
   product: {
-    product: { imageName, price, label, labelColor },
+    product: { id, title, imageName, price, label, labelColor },
   },
 }) => {
+  const history = useHistory();
+  const [createOrder] = useMutation(ORDER_CREATE_MUTATION);
+
+  const handleOnCreateOrder = async () => {
+    await createOrder({ variables: { productId: id } });
+    history.push("/order-summary");
+  };
+
   return (
     <div className="product-container">
       <div className="container dark-grey-text mt-5">
@@ -39,21 +50,14 @@ const SubProductDetail = ({
                 maiores quia sapiente.
               </p>
 
-              <form className="d-flex justify-content-left">
-                <input
-                  type="number"
-                  className="form-control"
-                  defaultValue="1"
-                  min="1"
-                  max="1000"
-                  aria-label="Search"
-                  style={{ width: "100px" }}
-                />
-                <button className="btn btn-primary btn-md my-0 p" type="submit">
-                  Add to cart
-                  <i className="fas fa-shopping-cart ml-1" />
-                </button>
-              </form>
+              <button
+                onClick={handleOnCreateOrder}
+                className="btn btn-primary m-0"
+                type="submit"
+              >
+                Add to cart
+                <i className="fas fa-shopping-cart ml-2" />
+              </button>
             </div>
           </div>
         </div>

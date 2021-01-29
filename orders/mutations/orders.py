@@ -13,16 +13,15 @@ class OrderType(DjangoObjectType):
 class CreateOrder(graphene.Mutation):
     class Arguments:
         product_id = graphene.ID()
-        quantity = graphene.Int()
 
     order = graphene.Field(OrderType)
 
-    def mutate(cls, info, product_id, quantity):
-        user = info.context.user
+    def mutate(cls, info, product_id):
+        #user = info.context.user
+        user = User.objects.get(username="admin")
         product = Product.objects.get(id=product_id)
-        order = Order.objects.create(
-            user=user, product=product, quantity=quantity
-        )
+
+        order = Order.objects.create(user=user, product=product)
         order.save()
 
         return CreateOrder(order)

@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 
+// Queries
 export const ORDER_USER_LIST_QUERY = gql`
   query {
     userOrders {
@@ -23,5 +24,19 @@ export const ORDER_TOTAl_ORDERS_QUERY = gql`
 export const ORDER_TOTAL_PRICE_QUERY = gql`
   query {
     totalPriceOfOrders
+  }
+`;
+
+// Mutations
+
+export const ORDER_CREATE_MUTATION = gql`
+  mutation($productId: ID!) {
+    createOrder(productId: $productId) {
+      order {
+        product {
+          title
+        }
+      }
+    }
   }
 `;
