@@ -10,7 +10,7 @@ class Order(models.Model):
 
     def calculate_total_price(self):
         return self.quantity * self.product.price
-
+    
     def __str__(self):
         return f'{self.quantity} amount of {self.product.title} from {self.user.username}'
 

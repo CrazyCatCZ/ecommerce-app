@@ -1,10 +1,9 @@
 import graphene
 from .mutations.orders import *
-from users.models import User
 
 
 class OrderMutation(graphene.ObjectType):
-    pass
+    create_order = CreateOrder.Field()
 
     
 class OrderQuery(graphene.ObjectType):

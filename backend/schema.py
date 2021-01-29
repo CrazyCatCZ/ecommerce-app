@@ -1,14 +1,14 @@
 import graphene
 from users.schema import UserQuery, UserMutation 
 from products.schema import ProductQuery 
-from orders.schema import OrderQuery 
+from orders.schema import OrderQuery, OrderMutation
 
 
 class Query(UserQuery, ProductQuery, OrderQuery, graphene.ObjectType):
     pass
 
 
-class Mutation(UserMutation, graphene.ObjectType):
+class Mutation(UserMutation, OrderMutation, graphene.ObjectType):
     pass
 
 
