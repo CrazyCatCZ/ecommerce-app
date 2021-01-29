@@ -5,7 +5,6 @@ import { USER_ME_QUERY } from "./components/Api/user";
 
 import Navbar from "./components/Navbar";
 import MainContent from "./components/MainContent";
-import Copyright from "./components/Copyright";
 import Pagination from "./components/Pagination";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import OrderSummary from "./components/OrderSummary/OrderSummary";
@@ -15,7 +14,7 @@ import Register from "./components/Authentication/Register";
 import "./App.css";
 
 function App() {
-  const [user, setUser] = useState("admin");
+  const [user, setUser] = useState(null);
   const { data: meQuery, loading } = useQuery(USER_ME_QUERY, {
     fetchPolicy: "network-only",
   });
@@ -30,7 +29,7 @@ function App() {
   return (
     <div>
       <main>
-        {user && loading === false ? (
+        {true && loading === false ? (
           <>
             <Navbar />
             <Switch>
@@ -41,7 +40,6 @@ function App() {
                 <>
                   <MainContent />
                   <Pagination />
-                  <Copyright />
                 </>
               </Route>
             </Switch>

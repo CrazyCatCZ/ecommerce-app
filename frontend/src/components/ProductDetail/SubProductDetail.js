@@ -7,8 +7,6 @@ const SubProductDetail = ({
     product: { imageName, price, label, labelColor },
   },
 }) => {
-  console.log(labelColor);
-
   return (
     <div className="product-container">
       <div className="container dark-grey-text mt-5">
@@ -43,9 +41,11 @@ const SubProductDetail = ({
 
               <form className="d-flex justify-content-left">
                 <input
+                  type="number"
                   className="form-control"
                   defaultValue="1"
-                  type="number"
+                  min="1"
+                  max="1000"
                   aria-label="Search"
                   style={{ width: "100px" }}
                 />
