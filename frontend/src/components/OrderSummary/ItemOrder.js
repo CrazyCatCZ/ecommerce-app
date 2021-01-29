@@ -9,14 +9,14 @@ const ItemOrder = ({ itemNumber, title, price, quantity }) => {
       <tr>
         <th scope="row">{itemNumber}</th>
         <td>{title}</td>
-        <td>{price}</td>
+        <td>{price}$</td>
         <td>
           <i className="fas fa-minus mr-2"></i>
           <span>{quantity}</span>
           <i className="fas fa-plus ml-2"></i>
         </td>
         <td>
-          {totalItemPrice}
+          {totalItemPrice}$
           <Link style={{ color: "red" }} to="/">
             <i className="fas fa-trash float-right"></i>
           </Link>

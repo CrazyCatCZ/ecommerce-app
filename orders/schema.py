@@ -12,6 +12,7 @@ class OrderMutation(graphene.ObjectType):
 class OrderQuery(graphene.ObjectType):
     all_orders = graphene.List(OrderType)
     user_orders = graphene.List(OrderType)
+    total_orders = graphene.Int()
     total_price_of_orders = graphene.Int()
 
     def resolve_all_orders(self, info):
@@ -21,6 +22,10 @@ class OrderQuery(graphene.ObjectType):
         #user = info.context.user
         user = User.objects.get(username='admin')
         return Order.objects.filter(user=user)
+
+    def resolve_total_orders(self, info):
+        user = info.context.user
+        return Order.objects.all().count()
 
     def resolve_total_price_of_orders(self, info):
         #user = info.context.user
