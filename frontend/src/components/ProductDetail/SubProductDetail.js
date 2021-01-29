@@ -9,6 +9,7 @@ const SubProductDetail = ({
   product: {
     product: { id, title, imageName, price, label, labelColor },
   },
+  orderIsAlreadyInCart: { orderIsAlreadyInCart },
 }) => {
   const history = useHistory();
   const [createOrder] = useMutation(ORDER_CREATE_MUTATION);
@@ -49,15 +50,25 @@ const SubProductDetail = ({
                 Beatae sit assumenda asperiores iure at maxime atque repellendus
                 maiores quia sapiente.
               </p>
-
-              <button
-                onClick={handleOnCreateOrder}
-                className="btn btn-primary m-0"
-                type="submit"
-              >
-                Add to cart
-                <i className="fas fa-shopping-cart ml-2" />
-              </button>
+              {orderIsAlreadyInCart === false ? (
+                <button
+                  onClick={handleOnCreateOrder}
+                  className="btn btn-primary m-0"
+                  type="submit"
+                >
+                  Add to cart
+                  <i className="fas fa-shopping-cart ml-2" />
+                </button>
+              ) : (
+                <button
+                  onClick={() => history.push("/order-summary")}
+                  className="btn btn-primary m-0"
+                  type="submit"
+                >
+                  Already in cart
+                  <i className="fas fa-shopping-cart ml-2" />
+                </button>
+              )}
             </div>
           </div>
         </div>

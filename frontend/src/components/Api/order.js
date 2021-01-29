@@ -27,6 +27,12 @@ export const ORDER_TOTAL_PRICE_QUERY = gql`
   }
 `;
 
+export const ORDER_IS_ALREADY_IN_CART_QUERY = gql`
+  query($productId: ID!) {
+    orderIsAlreadyInCart(productId: $productId)
+  }
+`;
+
 // Mutations
 export const ORDER_CREATE_MUTATION = gql`
   mutation($productId: ID!) {
