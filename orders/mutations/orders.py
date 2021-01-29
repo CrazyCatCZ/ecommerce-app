@@ -32,7 +32,7 @@ class DeleteOrder(graphene.Mutation):
     class Arguments:
         order_id = graphene.ID()
 
-    message = graphene.String()
+    order = graphene.Field(OrderType)
 
     def mutate(cls, info, order_id):
         user = info.context.user
@@ -41,3 +41,35 @@ class DeleteOrder(graphene.Mutation):
 
         message = 'Success!'
         return DeleteOrder(message)
+
+    
+class IncreaseQuantity(graphene.Mutation):
+    class Arguments:
+        order_id = graphene.ID()
+
+    order = graphene.Field(OrderType)
+
+    def mutate(cls, info, order_id):
+        user = info.context.user
+        order = Order.objects.get(id=order_id)
+
+        order.quantity += 1
+        order.save()
+
+        return IncreaseQuantity(order)
+
+
+class DecreaseQuantity(graphene.Mutation):
+    class Arguments:
+        order_id = graphene.ID()
+
+    order = graphene.Field(OrderType)
+
+    def mutate(cls, info, order_id):
+        user = info.context.user
+        order = Order.objects.get(id=order_id)
+
+        order.quantity -= 1
+        order.save()
+        
+        return DecreaseQuantity(order)

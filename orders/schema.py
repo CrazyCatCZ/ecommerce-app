@@ -5,6 +5,8 @@ from .mutations.orders import *
 class OrderMutation(graphene.ObjectType):
     create_order = CreateOrder.Field()
     delete_order = DeleteOrder.Field()
+    increase_quantity = IncreaseQuantity.Field()
+    decrease_quantity = DecreaseQuantity.Field()
 
     
 class OrderQuery(graphene.ObjectType):
