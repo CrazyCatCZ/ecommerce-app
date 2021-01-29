@@ -1,15 +1,11 @@
 import React from "react";
-import { useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
-import { USER_DELETE_TOKENS_MUTATION } from "./Api/user";
+import { ORDER_TOTAl_ORDERS_QUERY } from "../Api/order";
+import NavbarRightItems from "./NavbarRightItems";
 
 const Navbar = () => {
-  const [deleteTokens] = useMutation(USER_DELETE_TOKENS_MUTATION);
-
-  const handleOnLogout = async () => {
-    await deleteTokens();
-    window.location.reload(); // Reset page
-  };
+  const { data: totalOrders } = useQuery(ORDER_TOTAl_ORDERS_QUERY);
 
   return (
     <div>
@@ -41,29 +37,9 @@ const Navbar = () => {
               </li>
             </ul>
 
-            <ul className="navbar-nav nav-flex-icons">
-              <li className="nav-item">
-                <Link to="/order-summary" className="nav-link waves-effect">
-                  <span className="badge red z-depth-1 mr-1">0</span>
-                  <i className="fas fa-shopping-cart"></i>
-                  <span className="clearfix d-none d-sm-inline-block">
-                    {" "}
-                    Cart{" "}
-                  </span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link waves-effect">
-                  <span
-                    onClick={handleOnLogout}
-                    className="clearfix d-none d-sm-inline-block"
-                  >
-                    {" "}
-                    Logout{" "}
-                  </span>
-                </Link>
-              </li>
-            </ul>
+            {totalOrders ? (
+              <NavbarRightItems totalOrders={totalOrders} />
+            ) : null}
           </div>
         </div>
       </nav>

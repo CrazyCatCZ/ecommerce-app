@@ -14,6 +14,12 @@ export const ORDER_USER_LIST_QUERY = gql`
   }
 `;
 
+export const ORDER_TOTAl_ORDERS_QUERY = gql`
+  query {
+    totalOrders
+  }
+`;
+
 export const ORDER_TOTAL_PRICE_QUERY = gql`
   query {
     totalPriceOfOrders

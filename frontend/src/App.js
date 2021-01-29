@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { Switch, Route } from "react-router-dom";
 import { USER_ME_QUERY } from "./components/Api/user";
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import MainContent from "./components/MainContent";
 import Pagination from "./components/Pagination";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
