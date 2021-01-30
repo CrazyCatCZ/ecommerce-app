@@ -54,7 +54,9 @@ const client = new ApolloClient({
       Query: {
         fields: {
           userOrders: {
-            merge: false,
+            merge(existing, incoming) {
+              return incoming;
+            },
           },
         },
       },

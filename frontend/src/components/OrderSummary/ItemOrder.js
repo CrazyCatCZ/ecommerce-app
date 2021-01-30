@@ -23,11 +23,13 @@ const ItemOrder = ({
   const totalItemPrice = price * quantity;
 
   const [quantityValue, setQuantityValue] = useState();
-  const [deleteOrder, { loading: deleteLoading }] = useMutation(
+  const [deleteOrder, { loading: deleteLoading, data }] = useMutation(
     ORDER_DELETE_MUTATION
   );
   const [increaseQuantity] = useMutation(ORDER_INCREASE_QUANTITY_MUTATION);
   const [decreaseQuantity] = useMutation(ORDER_DECREASE_QUANTITY_MUTATION);
+
+  console.log(data);
 
   useEffect(() => {
     setQuantityValue(quantity);
