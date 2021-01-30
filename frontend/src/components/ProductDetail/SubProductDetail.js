@@ -18,9 +18,7 @@ const SubProductDetail = ({
   orderIsAlreadyInCart: { orderIsAlreadyInCart },
 }) => {
   const history = useHistory();
-  const [createOrder] = useMutation(ORDER_CREATE_MUTATION);
-
-  console.log(id);
+  const [createOrder, { loading }] = useMutation(ORDER_CREATE_MUTATION);
 
   const handleOnCreateOrder = async () => {
     await createOrder({
@@ -71,6 +69,7 @@ const SubProductDetail = ({
                   onClick={handleOnCreateOrder}
                   className="btn btn-primary m-0"
                   type="submit"
+                  disabled={loading}
                 >
                   Add to cart
                   <i className="fas fa-shopping-cart ml-2" />
@@ -101,32 +100,6 @@ const SubProductDetail = ({
               officia. Neque quibusdam quas a quis porro? Molestias illo neque
               eum in laborum.
             </p>
-          </div>
-        </div>
-
-        <div className="row wow fadeIn">
-          <div className="col-lg-4 col-md-12 mb-4">
-            <img
-              src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg"
-              className="img-fluid"
-              alt=""
-            />
-          </div>
-
-          <div className="col-lg-4 col-md-6 mb-4">
-            <img
-              src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg"
-              className="img-fluid"
-              alt=""
-            />
-          </div>
-
-          <div className="col-lg-4 col-md-6 mb-4">
-            <img
-              src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg"
-              className="img-fluid"
-              alt=""
-            />
           </div>
         </div>
       </div>

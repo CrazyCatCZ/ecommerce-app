@@ -23,7 +23,9 @@ const ItemOrder = ({
   const totalItemPrice = price * quantity;
 
   const [quantityValue, setQuantityValue] = useState();
-  const [deleteOrder] = useMutation(ORDER_DELETE_MUTATION);
+  const [deleteOrder, { loading: deleteLoading }] = useMutation(
+    ORDER_DELETE_MUTATION
+  );
   const [increaseQuantity] = useMutation(ORDER_INCREASE_QUANTITY_MUTATION);
   const [decreaseQuantity] = useMutation(ORDER_DECREASE_QUANTITY_MUTATION);
 
@@ -98,10 +100,14 @@ const ItemOrder = ({
         <td>
           <span>${totalItemPrice}</span>
           <Link style={{ color: "red" }}>
-            <i
-              onClick={handleOnDelete}
-              className="fas fa-trash float-right fa-lg"
-            ></i>
+            {deleteLoading ? (
+              <i className="fas fa-trash float-right fa-lg" />
+            ) : (
+              <i
+                onClick={handleOnDelete}
+                className="fas fa-trash float-right fa-lg"
+              />
+            )}
           </Link>
         </td>
       </tr>
