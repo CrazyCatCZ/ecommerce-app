@@ -10,6 +10,7 @@ INSTALLED_APPS = [
     'users',
     'products',
     'orders',
+    'payments',
 
     # Pip packages
     'stripe',
