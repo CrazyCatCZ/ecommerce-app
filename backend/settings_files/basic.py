@@ -12,6 +12,7 @@ INSTALLED_APPS = [
     'orders',
 
     # Pip packages
+    'stripe',
     'corsheaders',
     "graphene_django",
 ]

@@ -11,6 +11,7 @@ pyjwt = "==1.7.1"
 django-cors-headers = "*"
 pillow = "*"
 ipython = "*"
+stripe = "*"
 
 [dev-packages]
 
