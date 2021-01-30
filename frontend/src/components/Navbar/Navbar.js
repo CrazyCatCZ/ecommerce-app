@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
-import { ORDER_TOTAl_ORDERS_QUERY } from "../Api/order";
+import { ORDER_TOTAl_ORDERS_QUERY } from "../Api/order/order";
 import NavbarRightItems from "./NavbarRightItems";
 
 const Navbar = () => {

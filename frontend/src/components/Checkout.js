@@ -1,6 +1,9 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { ORDER_USER_LIST_QUERY, ORDER_TOTAL_PRICE_QUERY } from "./Api/order";
+import {
+  ORDER_USER_LIST_QUERY,
+  ORDER_TOTAL_PRICE_QUERY,
+} from "./Api/order/order";
 import CheckoutItems from "./CheckoutItems";
 
 const Checkout = () => {

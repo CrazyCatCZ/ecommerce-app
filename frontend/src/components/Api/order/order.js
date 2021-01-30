@@ -1,19 +1,14 @@
 import { gql } from "@apollo/client";
+import { ORDER_FIELDS_FRAGMENT } from "./fragment";
 
 // Queries
 export const ORDER_USER_LIST_QUERY = gql`
   query {
     userOrders {
-      id
-      product {
-        id
-        title
-        category
-        price
-      }
-      quantity
+      ...OrderFields
     }
   }
+  ${ORDER_FIELDS_FRAGMENT}
 `;
 
 export const ORDER_TOTAl_ORDERS_QUERY = gql`
@@ -39,12 +34,11 @@ export const ORDER_CREATE_MUTATION = gql`
   mutation($productId: ID!) {
     createOrder(productId: $productId) {
       order {
-        product {
-          title
-        }
+        ...OrderFields
       }
     }
   }
+  ${ORDER_FIELDS_FRAGMENT}
 `;
 
 export const ORDER_DELETE_MUTATION = gql`
@@ -59,18 +53,20 @@ export const ORDER_INCREASE_QUANTITY_MUTATION = gql`
   mutation($orderId: ID!) {
     increaseQuantity(orderId: $orderId) {
       order {
-        id
+        ...OrderFields
       }
     }
   }
+  ${ORDER_FIELDS_FRAGMENT}
 `;
 
 export const ORDER_DECREASE_QUANTITY_MUTATION = gql`
   mutation($orderId: ID!) {
     decreaseQuantity(orderId: $orderId) {
       order {
-        id
+        ...OrderFields
       }
     }
   }
+  ${ORDER_FIELDS_FRAGMENT}
 `;

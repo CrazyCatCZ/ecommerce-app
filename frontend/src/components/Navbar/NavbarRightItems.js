@@ -19,7 +19,7 @@ const NavbarRightItems = ({ totalOrders: { totalOrders } }) => {
             {totalOrders !== 0 ? (
               <span className="badge red z-depth-1 mr-1">{totalOrders}</span>
             ) : null}
-            <i className="fas fa-shopping-cart"></i>
+            <i className="fas fa-shopping-cart" />
             <span className="clearfix d-none d-sm-inline-block"> Cart </span>
           </Link>
         </li>

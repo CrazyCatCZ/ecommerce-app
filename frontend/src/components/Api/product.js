@@ -5,8 +5,8 @@ export const PRODUCT_LIST_QUERY = gql`
     allProducts {
       id
       title
-      category
       price
+      category
       image
       imageName
       label
