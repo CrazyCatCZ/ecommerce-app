@@ -6,6 +6,9 @@ import {
   ORDER_DELETE_MUTATION,
   ORDER_INCREASE_QUANTITY_MUTATION,
   ORDER_DECREASE_QUANTITY_MUTATION,
+  ORDER_TOTAl_ORDERS_QUERY,
+  ORDER_IS_ALREADY_IN_CART_QUERY,
+  ORDER_TOTAL_PRICE_QUERY,
 } from "../Api/order";
 
 const ItemOrder = ({
@@ -31,18 +34,35 @@ const ItemOrder = ({
   const handleOnDelete = async () => {
     await deleteOrder({
       variables: { orderId },
-      refetchQueries: [{ query: ORDER_USER_LIST_QUERY }],
+      refetchQueries: [
+        { query: ORDER_USER_LIST_QUERY },
+        { query: ORDER_TOTAl_ORDERS_QUERY },
+        { query: ORDER_TOTAL_PRICE_QUERY },
+        { variables: { productId }, query: ORDER_IS_ALREADY_IN_CART_QUERY },
+      ],
     });
   };
 
   const handleOnIncreaseQuantity = async () => {
     setQuantityValue((quantity) => quantity + 1);
-    await increaseQuantity({ variables: { orderId } });
+    await increaseQuantity({
+      variables: { orderId },
+      refetchQueries: [
+        { query: ORDER_TOTAL_PRICE_QUERY },
+        { query: ORDER_USER_LIST_QUERY },
+      ],
+    });
   };
 
   const handleOnDecreaseQuantity = async () => {
     setQuantityValue((quantity) => quantity - 1);
-    await decreaseQuantity({ variables: { orderId } });
+    await decreaseQuantity({
+      variables: { orderId },
+      refetchQueries: [
+        { query: ORDER_TOTAL_PRICE_QUERY },
+        { query: ORDER_USER_LIST_QUERY },
+      ],
+    });
   };
 
   return (
