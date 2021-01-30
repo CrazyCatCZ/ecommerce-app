@@ -1,48 +1,59 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
-import { Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import {
   ORDER_DELETE_MUTATION,
   ORDER_INCREASE_QUANTITY_MUTATION,
   ORDER_DECREASE_QUANTITY_MUTATION,
 } from "../Api/order";
 
-const ItemOrder = ({ id, itemNumber, title, price, quantity }) => {
+const ItemOrder = ({
+  orderId,
+  productId,
+  itemNumber,
+  title,
+  price,
+  quantity,
+}) => {
+  const history = useHistory();
   const totalItemPrice = price * quantity;
 
   const [deleteOrder] = useMutation(ORDER_DELETE_MUTATION);
   const [increaseQuantity] = useMutation(ORDER_INCREASE_QUANTITY_MUTATION);
   const [decreaseQuantity] = useMutation(ORDER_DECREASE_QUANTITY_MUTATION);
 
-  console.log(id);
-
   const handleOnDelete = async () => {
-    await deleteOrder({ variables: { orderId: id } });
+    await deleteOrder({ variables: { orderId } });
   };
 
   const handleOnIncreaseQuantity = async () => {
-    await increaseQuantity({ variables: { orderId: id } });
+    await increaseQuantity({ variables: { orderId } });
   };
 
   const handleOnDecreaseQuantity = async () => {
-    await decreaseQuantity({ variables: { orderId: id } });
+    await decreaseQuantity({ variables: { orderId } });
   };
 
   return (
     <>
       <tr>
         <th scope="row">{itemNumber}</th>
-        <td>{title}</td>
+        <td
+          className="clickable-container"
+          onClick={() => history.push(`product/${productId}`)}
+        >
+          {title}
+        </td>
         <td>{price}$</td>
         <td>
           <i
             onClick={handleOnDecreaseQuantity}
-            className="fas fa-minus mr-2 counter-icon"
+            className="fas fa-minus mr-2 clickable-container"
           ></i>
           <span>{quantity}</span>
           <i
             onClick={handleOnIncreaseQuantity}
-            className="fas fa-plus ml-2 counter-icon"
+            className="fas fa-plus ml-2 clickable-container"
           ></i>
         </td>
         <td>

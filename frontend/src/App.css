@@ -31,7 +31,7 @@ header,
   margin: "auto" !important;
 }
 
-.counter-icon {
+.clickable-container {
   cursor: pointer;
 }
 

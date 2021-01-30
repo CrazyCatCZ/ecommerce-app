@@ -9,6 +9,8 @@ const OrderSummary = () => {
   const { data: orders } = useQuery(ORDER_USER_LIST_QUERY);
   const { data: totalPrice } = useQuery(ORDER_TOTAL_PRICE_QUERY);
 
+  console.log(orders);
+
   return (
     <>
       {orders && totalPrice ? (
@@ -31,13 +33,18 @@ const OrderSummary = () => {
                     <>
                       {orders.userOrders.map(
                         (
-                          { id, product: { title, price }, quantity },
+                          {
+                            id: orderId,
+                            product: { id: productId, title, price },
+                            quantity,
+                          },
                           index
                         ) => {
                           return (
                             <ItemOrder
-                              key={id}
-                              id={id}
+                              key={orderId}
+                              orderId={orderId}
+                              productId={productId}
                               itemNumber={index + 1}
                               title={title}
                               price={price}

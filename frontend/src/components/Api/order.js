@@ -6,6 +6,7 @@ export const ORDER_USER_LIST_QUERY = gql`
     userOrders {
       id
       product {
+        id
         title
         category
         price
