@@ -48,7 +48,7 @@ const Product = ({
             </h5>
 
             <h4 className="font-weight-bold blue-text">
-              <strong>{price}$</strong>
+              <strong>${price}</strong>
             </h4>
           </div>
         </div>

@@ -9,7 +9,7 @@ const OrderBottom = ({ totalPrice: { totalPriceOfOrders } }) => {
           <b>Order Total</b>
         </td>
         <td>
-          <b>{totalPriceOfOrders}$</b>
+          <b>${totalPriceOfOrders}</b>
         </td>
       </tr>
       <tr>

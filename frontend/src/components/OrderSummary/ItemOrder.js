@@ -75,20 +75,28 @@ const ItemOrder = ({
         >
           {title}
         </td>
-        <td>{price}$</td>
+        <td>${price}</td>
         <td>
-          <i
-            onClick={handleOnDecreaseQuantity}
-            className="fas fa-minus mr-2 clickable-container"
-          ></i>
+          {quantityValue <= 1 ? (
+            <i className="fas fa-minus mr-2 fa-disabled" />
+          ) : (
+            <i
+              onClick={handleOnDecreaseQuantity}
+              className="fas fa-minus mr-2 clickable-container"
+            />
+          )}
           <span>{quantityValue}</span>
-          <i
-            onClick={handleOnIncreaseQuantity}
-            className="fas fa-plus ml-2 clickable-container"
-          ></i>
+          {quantityValue >= 5 ? (
+            <i className="fas fa-plus ml-2 fa-disabled" />
+          ) : (
+            <i
+              onClick={handleOnIncreaseQuantity}
+              className="fas fa-plus ml-2 clickable-container"
+            />
+          )}
         </td>
         <td>
-          {totalItemPrice}$
+          <span>${totalItemPrice}</span>
           <Link style={{ color: "red" }}>
             <i
               onClick={handleOnDelete}
