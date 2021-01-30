@@ -44,6 +44,7 @@ const Checkout = () => {
                 <button
                   className="btn btn-primary btn-lg btn-block"
                   type="submit"
+                  disabled={orders.userOrders.length === 0 ? true : false}
                 >
                   Continue to checkout
                 </button>
