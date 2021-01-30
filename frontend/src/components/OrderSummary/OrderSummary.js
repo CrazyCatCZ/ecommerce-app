@@ -9,8 +9,6 @@ const OrderSummary = () => {
   const { data: orders } = useQuery(ORDER_USER_LIST_QUERY);
   const { data: totalPrice } = useQuery(ORDER_TOTAL_PRICE_QUERY);
 
-  console.log(orders);
-
   return (
     <>
       {orders && totalPrice ? (

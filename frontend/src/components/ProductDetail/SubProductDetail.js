@@ -1,7 +1,7 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
-import { ORDER_CREATE_MUTATION } from "../Api/order";
+import { ORDER_USER_LIST_QUERY, ORDER_CREATE_MUTATION } from "../Api/order";
 
 const PUBLIC_FOLDER = process.env.PUBLIC_URL;
 
@@ -15,7 +15,10 @@ const SubProductDetail = ({
   const [createOrder] = useMutation(ORDER_CREATE_MUTATION);
 
   const handleOnCreateOrder = async () => {
-    await createOrder({ variables: { productId: id } });
+    await createOrder({
+      variables: { productId: id },
+      refetchQueries: [{ query: ORDER_USER_LIST_QUERY }],
+    });
     history.push("/order-summary");
   };
 

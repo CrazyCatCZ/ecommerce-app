@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { useHistory, Link } from "react-router-dom";
 import {
+  ORDER_USER_LIST_QUERY,
   ORDER_DELETE_MUTATION,
   ORDER_INCREASE_QUANTITY_MUTATION,
   ORDER_DECREASE_QUANTITY_MUTATION,
@@ -18,19 +19,29 @@ const ItemOrder = ({
   const history = useHistory();
   const totalItemPrice = price * quantity;
 
+  const [quantityValue, setQuantityValue] = useState();
   const [deleteOrder] = useMutation(ORDER_DELETE_MUTATION);
   const [increaseQuantity] = useMutation(ORDER_INCREASE_QUANTITY_MUTATION);
   const [decreaseQuantity] = useMutation(ORDER_DECREASE_QUANTITY_MUTATION);
 
+  useEffect(() => {
+    setQuantityValue(quantity);
+  }, [quantity]);
+
   const handleOnDelete = async () => {
-    await deleteOrder({ variables: { orderId } });
+    await deleteOrder({
+      variables: { orderId },
+      refetchQueries: [{ query: ORDER_USER_LIST_QUERY }],
+    });
   };
 
   const handleOnIncreaseQuantity = async () => {
+    setQuantityValue((quantity) => quantity + 1);
     await increaseQuantity({ variables: { orderId } });
   };
 
   const handleOnDecreaseQuantity = async () => {
+    setQuantityValue((quantity) => quantity - 1);
     await decreaseQuantity({ variables: { orderId } });
   };
 
@@ -50,7 +61,7 @@ const ItemOrder = ({
             onClick={handleOnDecreaseQuantity}
             className="fas fa-minus mr-2 clickable-container"
           ></i>
-          <span>{quantity}</span>
+          <span>{quantityValue}</span>
           <i
             onClick={handleOnIncreaseQuantity}
             className="fas fa-plus ml-2 clickable-container"

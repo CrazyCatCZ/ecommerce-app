@@ -40,7 +40,7 @@ const Product = ({
               <strong>
                 <Link to="product/1" className="dark-grey-text">
                   {title}
-                  <span className={`ml-1 badge badge-pill ${labelClass}`}>
+                  <span className={`ml-2 badge badge-pill ${labelClass}`}>
                     {label}
                   </span>
                 </Link>

@@ -35,6 +35,10 @@ header,
   cursor: pointer;
 }
 
+.fa-disabled {
+  opacity: 0.6 !important;
+}
+
 @media (max-width: 740px) {
   html,
   body,
