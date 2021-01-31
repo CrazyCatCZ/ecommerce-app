@@ -1,6 +1,6 @@
 import React from "react";
 
-const CheckoutItems = ({ title, category, price, quantity }) => {
+const CheckoutOrder = ({ title, category, price, quantity }) => {
   const finalPrice = quantity * price;
 
   return (
@@ -28,4 +28,4 @@ const CheckoutItems = ({ title, category, price, quantity }) => {
   );
 };
 
-export default CheckoutItems;
+export default CheckoutOrder;

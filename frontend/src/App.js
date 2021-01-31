@@ -8,7 +8,7 @@ import MainContent from "./components/MainContent";
 import Pagination from "./components/Pagination";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import OrderSummary from "./components/OrderSummary/OrderSummary";
-import Checkout from "./components/Checkout";
+import Checkout from "./components/Payment/Checkout";
 import Login from "./components/Authentication/Login";
 import Register from "./components/Authentication/Register";
 import "./App.css";
