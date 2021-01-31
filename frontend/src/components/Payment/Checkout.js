@@ -25,6 +25,7 @@ const Checkout = () => {
           <Modal
             modalIsOpen={modalIsOpen}
             closeModal={() => setModalIsOpen(false)}
+            totalPrice={totalPrice}
           />
         </>
       ) : null}
