@@ -7,6 +7,7 @@ import {
 
 import SubCheckout from "./SubCheckout";
 import Modal from "./Modal";
+import Message from "./Message";
 
 const Checkout = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -27,6 +28,7 @@ const Checkout = () => {
             closeModal={() => setModalIsOpen(false)}
             totalPrice={totalPrice}
           />
+          <Message />
         </>
       ) : null}
     </>
