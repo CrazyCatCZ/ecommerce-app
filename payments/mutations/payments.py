@@ -9,7 +9,8 @@ from graphql_jwt.decorators import login_required
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 PRODUCT_PRICE = os.environ.get('STRIPE_COFFEE_PRODUCT')
 
-BASE_URL = os.environ.get('WEBSITE_BASE_URL')
+#BASE_URL = os.environ.get('WEBSITE_BASE_URL')
+BASE_URL = 'http://localhost:3000'
 CENTS_TO_DOLLARS = 100
 IMAGE_URL = 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
 

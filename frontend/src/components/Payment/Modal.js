@@ -34,13 +34,11 @@ const useStyles = makeStyles((theme) => ({
 
 // Get key from .env file
 const STRIPE_PUBLIC_KEY = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
-console.log(STRIPE_PUBLIC_KEY);
-
 const stripePromise = loadStripe(STRIPE_PUBLIC_KEY);
 
 const PaymentModal = ({ modalIsOpen, closeModal }) => {
   const classes = useStyles();
-  const [createCheckoutSession, { data }] = useMutation(
+  const [createCheckoutSession, { loading }] = useMutation(
     CREATE_CHECKOUT_SESSION_MUTATION
   );
 
@@ -57,7 +55,6 @@ const PaymentModal = ({ modalIsOpen, closeModal }) => {
     const stripe = await stripePromise;
 
     const { data: response } = await createCheckoutSession();
-    console.log(response);
     const session = await JSON.parse(response.createCheckoutSession.session);
 
     // When the customer clicks on the button, redirect them to Checkout.
@@ -69,6 +66,8 @@ const PaymentModal = ({ modalIsOpen, closeModal }) => {
       console.log("error");
     }
   };
+
+  console.log(loading);
 
   return (
     <Modal
@@ -94,6 +93,7 @@ const PaymentModal = ({ modalIsOpen, closeModal }) => {
           </h5>
           <Button
             className={classes.submitButton}
+            disabled={loading}
             onClick={handleOnSubmit}
             size="large"
             variant="contained"
