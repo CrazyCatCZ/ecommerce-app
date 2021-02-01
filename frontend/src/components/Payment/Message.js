@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
+import {
+  ORDER_CLEAR_ORDERS_MUTATION,
+  ORDER_TOTAl_ORDERS_QUERY,
+} from "../Api/order/order";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { Alert, AlertTitle } from "@material-ui/lab";
@@ -24,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 const TextMessage = () => {
   const classes = useStyles();
   const history = useHistory();
+  const [clearOrders] = useMutation(ORDER_CLEAR_ORDERS_MUTATION);
 
   const [open, setOpen] = useState(false);
   const [messageObject, setMessageObject] = useState({});
@@ -32,6 +38,7 @@ const TextMessage = () => {
     const query = new URLSearchParams(window.location.search);
 
     if (query.get("success") === "true") {
+      clearOrders({ refetchQueries: [{ query: ORDER_TOTAl_ORDERS_QUERY }] });
       setMessageObject({
         title: "Success!",
         content: "Thanks for purchasing our products!",
@@ -43,7 +50,7 @@ const TextMessage = () => {
       });
     }
     setOpen(true);
-  }, []);
+  }, [clearOrders]);
 
   return (
     <div className={classes.root}>

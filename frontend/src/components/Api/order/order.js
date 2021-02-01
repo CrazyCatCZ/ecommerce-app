@@ -70,3 +70,11 @@ export const ORDER_DECREASE_QUANTITY_MUTATION = gql`
   }
   ${ORDER_FIELDS_FRAGMENT}
 `;
+
+export const ORDER_CLEAR_ORDERS_MUTATION = gql`
+  mutation {
+    clearOrders {
+      message
+    }
+  }
+`;
