@@ -1,5 +1,6 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
+import { useHistory } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import { CREATE_CHECKOUT_SESSION_MUTATION } from "../Api/payment";
 
@@ -41,19 +42,12 @@ const PaymentModal = ({
   closeModal,
   totalPrice: { totalPriceOfOrders: totalPrice },
 }) => {
+  const history = useHistory();
   const classes = useStyles();
+
   const [createCheckoutSession, { loading }] = useMutation(
     CREATE_CHECKOUT_SESSION_MUTATION
   );
-
-  /*
-  useEffect(() => {
-    const query = new URLSearchParams(window.location.search);
-    if (query.get("success")) {
-      setMessage("success");
-    }
-  }, [setMessage, data])
-  */
 
   const handleOnSubmit = async () => {
     const stripe = await stripePromise;
@@ -69,7 +63,7 @@ const PaymentModal = ({
     });
 
     if (result.error) {
-      console.log("error");
+      history.push("?success=false");
     }
   };
 

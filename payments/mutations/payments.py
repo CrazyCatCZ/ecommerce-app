@@ -37,7 +37,7 @@ class CreateCheckoutSession(graphene.Mutation):
                 'quantity': 1,
             }],
             mode='payment',
-            success_url=f'{BASE_URL}?success=true',
+            success_url=f'{BASE_URL}?success=false',
             cancel_url=f'{BASE_URL}',
         )
 
