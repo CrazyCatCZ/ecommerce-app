@@ -75,3 +75,18 @@ class DecreaseQuantity(graphene.Mutation):
         order.save()
         
         return DecreaseQuantity(order)
+
+
+class ClearOrders(graphene.Mutation):
+    message = graphene.String()
+
+    def mutate(cls, info):
+        #user = info.context.user
+        user = User.objects.get(username="admin")
+        user_orders = Order.objects.filter(user=user)
+
+        for order in user_orders:
+            order.delete()
+
+        message = 'Success!'
+        return ClearOrders(message)

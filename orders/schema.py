@@ -7,6 +7,7 @@ class OrderMutation(graphene.ObjectType):
     delete_order = DeleteOrder.Field()
     increase_quantity = IncreaseQuantity.Field()
     decrease_quantity = DecreaseQuantity.Field()
+    clear_orders = ClearOrders.Field()
 
     
 class OrderQuery(graphene.ObjectType):
