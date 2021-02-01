@@ -35,7 +35,7 @@ const SubProductDetail = ({
 
   return (
     <div className="product-container">
-      <div className="container dark-grey-text mt-5">
+      <div className="container dark-grey-text">
         <div className="row wow fadeIn">
           <div className="col-md-6 mb-4">
             <img

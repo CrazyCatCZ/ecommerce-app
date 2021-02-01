@@ -8,8 +8,8 @@ const Navbar = () => {
   const { data: totalOrders } = useQuery(ORDER_TOTAl_ORDERS_QUERY);
 
   return (
-    <div>
-      <nav className="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+    <>
+      <nav className="navbar navbar-expand-lg navbar-light white scrolling-navbar">
         <div className="container">
           <Link className="navbar-brand waves-effect" to="/">
             <strong className="blue-text">E-commerce</strong>
@@ -43,7 +43,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-    </div>
+    </>
   );
 };
 

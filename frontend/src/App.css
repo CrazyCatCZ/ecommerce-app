@@ -15,13 +15,11 @@ header,
   margin-top: 10rem;
 }
 
-.product-container {
-  margin-top: 5rem;
-}
-
+.main-content-container,
+.product-container,
 .order-summary-container,
 .checkout-container {
-  margin-top: 6rem;
+  margin-top: 2rem;
 }
 
 .cart-container {

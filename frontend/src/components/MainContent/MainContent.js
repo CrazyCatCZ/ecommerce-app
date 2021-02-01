@@ -1,19 +1,16 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { PRODUCT_LIST_QUERY } from "./Api/product";
+import { PRODUCT_LIST_QUERY } from "../Api/product";
 import Product from "./Product";
 
 const MainContent = () => {
   let labelClass;
-
   const { data: products } = useQuery(PRODUCT_LIST_QUERY);
 
   return (
-    <div>
+    <>
       {products && products.allProducts ? (
-        <div className="container">
-          <nav className="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5" />
-
+        <div className="container main-content-container">
           <section className="text-center mb-4">
             <div className="row wow fadeIn">
               {products.allProducts.map(
@@ -39,11 +36,23 @@ const MainContent = () => {
                   );
                 }
               )}
+              {/*
+              <Product
+                key={1}
+                id={4}
+                title={"gfdg"}
+                category={"tvoje mama"}
+                price={1321}
+                imageName={"black_jacket.jpg"}
+                label={"gdfgd"}
+                labelClass={"gdfgd"}
+              />
+              */}
             </div>
           </section>
         </div>
       ) : null}
-    </div>
+    </>
   );
 };
 

@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
   },
   messageContainer: {
     justifyContent: "center",
-    marginBottom: theme.spacing(7.5),
   },
 }));
 
@@ -23,7 +22,9 @@ const TextMessage = () => {
   const classes = useStyles();
   const history = useHistory();
 
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+
+  console.log("test");
 
   /*
   useEffect(() => {
@@ -45,33 +46,31 @@ const TextMessage = () => {
 
   return (
     <div className={classes.root}>
-      {typeof message === "string" ? (
-        <Grid className={classes.messageContainer} container>
-          <Grid item xs={11} sm={8} md={6} lg={4}>
-            <Collapse in={true}>
-              <Alert
-                severity={"success"}
-                action={
-                  <IconButton
-                    onClick={() => {
-                      setOpen(false);
-                      history.push("/");
-                    }}
-                    aria-label="close"
-                    color="inherit"
-                    size="small"
-                  >
-                    <CloseIcon fontSize="inherit" />
-                  </IconButton>
-                }
-              >
-                <AlertTitle>title here</AlertTitle>
-                content here
-              </Alert>
-            </Collapse>
-          </Grid>
+      <Grid className={classes.messageContainer} container>
+        <Grid item xs={11} sm={8} md={6} lg={4}>
+          <Collapse in={open}>
+            <Alert
+              severity={"success"}
+              action={
+                <IconButton
+                  onClick={() => {
+                    setOpen(false);
+                    history.push("/");
+                  }}
+                  aria-label="close"
+                  color="inherit"
+                  size="small"
+                >
+                  <CloseIcon fontSize="inherit" />
+                </IconButton>
+              }
+            >
+              <AlertTitle>title here</AlertTitle>
+              content here
+            </Alert>
+          </Collapse>
         </Grid>
-      ) : null}
+      </Grid>
     </div>
   );
 };
