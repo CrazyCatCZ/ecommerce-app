@@ -20,6 +20,7 @@ export const PRODUCT_DETAIL_QUERY = gql`
       id
       title
       price
+      category
       description
       imageName
       label

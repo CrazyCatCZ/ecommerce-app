@@ -13,12 +13,13 @@ const PUBLIC_FOLDER = process.env.PUBLIC_URL;
 
 const SubProductDetail = ({
   product: {
-    product: { id, title, imageName, price, label, labelColor },
+    product: { id, category, description, price, imageName, label, labelColor },
   },
   orderIsAlreadyInCart: { orderIsAlreadyInCart },
 }) => {
   const history = useHistory();
   const [createOrder, { loading }] = useMutation(ORDER_CREATE_MUTATION);
+  category = category.replace("_", " ");
 
   const handleOnCreateOrder = async () => {
     await createOrder({
@@ -49,6 +50,7 @@ const SubProductDetail = ({
             <div className="p-4">
               <p className="lead d-flex align-items-center">
                 <b className="font-weight-bold">${price}</b>
+                <span className={`badge red ml-3`}>{category}</span>
                 {label ? (
                   <span className={`badge ${labelColor.toLowerCase()} ml-3`}>
                     {label}
@@ -57,13 +59,8 @@ const SubProductDetail = ({
               </p>
 
               <p className="lead font-weight-bold">Description</p>
+              <p className="mb-4">{description}</p>
 
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-                dolor suscipit libero eos atque quia ipsa sint voluptatibus!
-                Beatae sit assumenda asperiores iure at maxime atque repellendus
-                maiores quia sapiente.
-              </p>
               {orderIsAlreadyInCart === false ? (
                 <button
                   onClick={handleOnCreateOrder}
@@ -85,21 +82,6 @@ const SubProductDetail = ({
                 </button>
               )}
             </div>
-          </div>
-        </div>
-
-        <hr />
-
-        <div className="row d-flex justify-content-center wow fadeIn">
-          <div className="col-md-6 text-center">
-            <h4 className="my-4 h4">Additional information</h4>
-
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-              suscipit modi sapiente illo soluta odit voluptates, quibusdam
-              officia. Neque quibusdam quas a quis porro? Molestias illo neque
-              eum in laborum.
-            </p>
           </div>
         </div>
       </div>
