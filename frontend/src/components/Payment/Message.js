@@ -16,11 +16,11 @@ import CloseIcon from "@material-ui/icons/Close";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    marginTop: "2rem",
     "& > * + *": {
       marginTop: theme.spacing(2),
     },
   },
+  marginTop: "2rem",
   messageContainer: {
     justifyContent: "center",
   },

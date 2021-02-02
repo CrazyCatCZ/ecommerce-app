@@ -3,7 +3,7 @@ import React from "react";
 const Categories = () => {
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mb-3">
+      <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 categories-container">
         <span class="navbar-brand">Categories:</span>
 
         <button
