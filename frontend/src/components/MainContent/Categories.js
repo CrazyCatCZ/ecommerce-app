@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Categories = () => {
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 categories-container">
-        <span class="navbar-brand">Categories:</span>
+      <nav className="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 categories-container">
+        <span className="navbar-brand">Categories:</span>
 
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#basicExampleNav"
@@ -15,38 +16,29 @@ const Categories = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="basicExampleNav">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">
-                All
-                <span class="sr-only">(current)</span>
-              </a>
+        <div className="collapse navbar-collapse" id="basicExampleNav">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
+              <Link className="nav-link">All</Link>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Shirts
-              </a>
+            <li className="nav-item">
+              <Link className="nav-link">Shirts</Link>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Sport wears
-              </a>
+            <li className="nav-item">
+              <Link className="nav-link">Sport wears</Link>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Outwears
-              </a>
+            <li className="nav-item">
+              <Link className="nav-link">Outwears</Link>
             </li>
           </ul>
 
-          <form class="form-inline">
-            <div class="md-form my-0">
+          <form className="form-inline">
+            <div className="md-form my-0">
               <input
-                class="form-control mr-sm-2"
+                className="form-control mr-sm-2"
                 type="text"
                 placeholder="Search"
                 aria-label="Search"
