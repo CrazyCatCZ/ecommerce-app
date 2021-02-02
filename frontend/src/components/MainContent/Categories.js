@@ -21,30 +21,31 @@ const Categories = () => {
 
         <div className="collapse navbar-collapse" id="basicExampleNav">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
+            <li className="nav-item">
               <Link className="nav-link">All</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link">Shirts</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link">Sport wears</Link>
+              <Link className="nav-link">Notebooks</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link">Outwears</Link>
+              <Link className="nav-link">Computers</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link">Smartphones</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link">Tablets</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link">Headphones</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link">Cameras</Link>
             </li>
           </ul>
-
-          <form className="form-inline">
-            <div className="md-form my-0">
-              <input
-                className="form-control mr-sm-2"
-                type="text"
-                placeholder="Search"
-                aria-label="Search"
-              />
-            </div>
-          </form>
         </div>
       </nav>
     </>
