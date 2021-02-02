@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { PRODUCT_LIST_QUERY } from "../Api/product";
 import Product from "./Product";
+import Categories from "./Categories";
 
 const MainContent = () => {
   let labelClass;
@@ -11,6 +12,7 @@ const MainContent = () => {
     <>
       {products && products.allProducts ? (
         <div className="container main-content-container">
+          <Categories />
           <section className="text-center mb-4">
             <div className="row wow fadeIn">
               {products.allProducts.map(
