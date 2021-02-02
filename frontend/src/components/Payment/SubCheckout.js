@@ -20,8 +20,6 @@ const SubCheckout = ({
             <ul className="list-group mb-3 z-depth-1">
               {userOrders.map(
                 ({ id, product: { title, category, price }, quantity }) => {
-                  category = category.replace("_", " ");
-
                   return (
                     <CheckoutOrder
                       key={id}

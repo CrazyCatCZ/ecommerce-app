@@ -3,9 +3,7 @@ from django.contrib.auth.models import User
 
 
 CATEGORY_CHOICES = (
-    ('Shirt', 'Shirt'),
-    ('Sport wear', 'Sport wear'),
-    ('Outwear', 'Outwear')
+    ('clothing', 'clothing'),
 )
 
 LABEL_CHOICES = (

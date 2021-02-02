@@ -20,7 +20,7 @@ const Product = ({
         <div className="card">
           <div className="view overlay">
             <img
-              src={`${PUBLIC_FOLDER}/static/images/${imageName}`}
+              src={`${PUBLIC_FOLDER}/static/images/${category.toLowerCase()}/${imageName}`}
               className="card-img-top"
               alt=""
             />
@@ -33,9 +33,7 @@ const Product = ({
             <Link
               onClick={() => history.push(`product/${id}`)}
               className="grey-text"
-            >
-              <h5>{category}</h5>
-            </Link>
+            ></Link>
             <h5>
               <strong>
                 <Link to="product/1" className="dark-grey-text">

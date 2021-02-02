@@ -19,7 +19,6 @@ const SubProductDetail = ({
 }) => {
   const history = useHistory();
   const [createOrder, { loading }] = useMutation(ORDER_CREATE_MUTATION);
-  category = category.replace("_", " ");
 
   const handleOnCreateOrder = async () => {
     await createOrder({
@@ -40,7 +39,7 @@ const SubProductDetail = ({
         <div className="row wow fadeIn">
           <div className="col-md-6 mb-4">
             <img
-              src={`${PUBLIC_FOLDER}/static/images/${imageName}`}
+              src={`${PUBLIC_FOLDER}/static/images/${category.toLowerCase()}/${imageName}`}
               className="img-fluid"
               alt=""
             />

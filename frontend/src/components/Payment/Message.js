@@ -15,12 +15,13 @@ import CloseIcon from "@material-ui/icons/Close";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    marginTop: "2rem",
+    marginBottom: "2rem",
     width: "100%",
     "& > * + *": {
       marginTop: theme.spacing(2),
     },
   },
-  marginTop: "2rem",
   messageContainer: {
     justifyContent: "center",
   },
@@ -53,38 +54,40 @@ const TextMessage = () => {
   }, [clearOrders]);
 
   return (
-    <div className={classes.root}>
+    <>
       {messageObject && messageObject.title ? (
-        <Grid className={classes.messageContainer} container>
-          <Grid item xs={10} sm={7} md={5} lg={3}>
-            <Collapse in={open}>
-              <Alert
-                severity={
-                  messageObject.title === "Success!" ? "success" : "error"
-                }
-                action={
-                  <IconButton
-                    onClick={() => {
-                      setOpen(false);
-                      setMessageObject({});
-                      history.push("/");
-                    }}
-                    aria-label="close"
-                    color="inherit"
-                    size="small"
-                  >
-                    <CloseIcon fontSize="inherit" />
-                  </IconButton>
-                }
-              >
-                <AlertTitle>{messageObject.title}</AlertTitle>
-                {messageObject.content}
-              </Alert>
-            </Collapse>
+        <div className={classes.root}>
+          <Grid className={classes.messageContainer} container>
+            <Grid item xs={10} sm={7} md={5} lg={3}>
+              <Collapse in={open}>
+                <Alert
+                  severity={
+                    messageObject.title === "Success!" ? "success" : "error"
+                  }
+                  action={
+                    <IconButton
+                      onClick={() => {
+                        setOpen(false);
+                        setMessageObject({});
+                        history.push("/");
+                      }}
+                      aria-label="close"
+                      color="inherit"
+                      size="small"
+                    >
+                      <CloseIcon fontSize="inherit" />
+                    </IconButton>
+                  }
+                >
+                  <AlertTitle>{messageObject.title}</AlertTitle>
+                  {messageObject.content}
+                </Alert>
+              </Collapse>
+            </Grid>
           </Grid>
-        </Grid>
+        </div>
       ) : null}
-    </div>
+    </>
   );
 };
 

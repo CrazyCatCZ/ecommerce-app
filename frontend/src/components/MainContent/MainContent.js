@@ -38,18 +38,6 @@ const MainContent = () => {
                   );
                 }
               )}
-              {/*
-              <Product
-                key={1}
-                id={4}
-                title={"gfdg"}
-                category={"tvoje mama"}
-                price={1321}
-                imageName={"black_jacket.jpg"}
-                label={"gdfgd"}
-                labelClass={"gdfgd"}
-              />
-              */}
             </div>
           </section>
         </div>
