@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Categories = () => {
+const Categories = ({ setCategory }) => {
+  const handleOnCategoryChange = (e) => {
+    const categoryName = e.target.innerHTML.toLowerCase();
+    setCategory(categoryName);
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 categories-container">
@@ -20,12 +25,12 @@ const Categories = () => {
         </button>
 
         <div className="collapse navbar-collapse" id="basicExampleNav">
-          <ul className="navbar-nav mr-auto">
+          <ul onClick={handleOnCategoryChange} className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link className="nav-link">All</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link">Shirts</Link>
+              <Link className="nav-link">Clothing</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link">Notebooks</Link>
