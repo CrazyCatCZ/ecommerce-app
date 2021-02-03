@@ -5,7 +5,6 @@ import { USER_ME_QUERY } from "./components/Api/user";
 
 import Navbar from "./components/Navbar/Navbar";
 import MainContent from "./components/MainContent/MainContent";
-import Pagination from "./components/Pagination";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import OrderSummary from "./components/OrderSummary/OrderSummary";
 import Checkout from "./components/Payment/Checkout";
@@ -41,7 +40,6 @@ function App() {
                 <>
                   <Message />
                   <MainContent />
-                  <Pagination />
                 </>
               </Route>
             </Switch>
