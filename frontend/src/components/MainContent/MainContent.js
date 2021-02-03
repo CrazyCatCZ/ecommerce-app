@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { PRODUCT_LIST_QUERY } from "../Api/product";
+import { PRODUCT_LIST_QUERY } from "../Api/product/product";
 import Product from "./Product";
 import Categories from "./Categories";
 
