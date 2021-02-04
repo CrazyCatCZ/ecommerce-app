@@ -1,6 +1,6 @@
 import graphene
 from graphene_django import DjangoObjectType
-from users.models import User
+from users.models import User, Customer
 from orders.models import Order
 from products.models import Product
 
@@ -18,7 +18,7 @@ class CreateOrder(graphene.Mutation):
 
     def mutate(cls, info, product_id):
         #user = info.context.user
-        user = User.objects.get(username="admin")
+        customer, created = Customer.objects.get_or_create()
         product = Product.objects.get(id=product_id)
 
         order = Order.objects.create(user=user, product=product)
