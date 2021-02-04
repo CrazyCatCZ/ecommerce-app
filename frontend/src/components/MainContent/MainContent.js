@@ -8,7 +8,7 @@ import Categories from "./Categories";
 const MainContent = () => {
   let labelClass;
   const [category, setCategory] = useState("all");
-  const [getProducts, { data: products }] = useLazyQuery(
+  const [getProducts, { data: products, loading }] = useLazyQuery(
     PRODUCT_CATEGORY_QUERY
   );
 
@@ -18,9 +18,9 @@ const MainContent = () => {
 
   return (
     <>
-      {products && products.productsByCategory ? (
-        <div className="container main-content-container">
-          <Categories setCategory={setCategory} />
+      <div className="container main-content-container">
+        <Categories setCategory={setCategory} />
+        {products && products.productsByCategory && loading === false ? (
           <section className="text-center mb-4">
             <div className="row wow fadeIn">
               {products.productsByCategory.map(
@@ -46,8 +46,8 @@ const MainContent = () => {
               )}
             </div>
           </section>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
     </>
   );
 };

@@ -20,6 +20,9 @@ class ProductQuery(graphene.ObjectType):
         return Product.objects.get(id=id)
 
     def resolve_products_by_category(root, info, category):
-        return Product.objects.filter(category=category)
+        if category == 'all':
+            return Product.objects.all()
+        else: 
+            return Product.objects.filter(category=category)
 
     

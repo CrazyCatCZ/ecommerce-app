@@ -18,6 +18,7 @@ class OrderQuery(graphene.ObjectType):
     total_price_of_orders = graphene.Int()
 
     def resolve_all_orders(self, info):
+        user = info.context.user
         return Order.objects.all()
 
     def resolve_user_orders(self, info):
