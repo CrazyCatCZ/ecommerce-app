@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import Cookies from "js-cookie";
 import { v4 as uuidv4 } from "uuid";
+import Cookies from "js-cookie";
 import { BrowserRouter as Router } from "react-router-dom";
 import { setContext } from "@apollo/client/link/context";
 import {
