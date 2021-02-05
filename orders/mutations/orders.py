@@ -17,11 +17,17 @@ class CreateOrder(graphene.Mutation):
     order = graphene.Field(OrderType)
 
     def mutate(cls, info, product_id):
-        #user = info.context.user
-        customer, created = Customer.objects.get_or_create()
+        request = info.context
+        user = request.user
         product = Product.objects.get(id=product_id)
 
-        order = Order.objects.create(user=user, product=product)
+        if user.is_anonymous:
+            session_id = request.COOKIES['session-id']
+            customer, created = Customer.objects.get_or_create()
+        else:
+            customer = user.customer
+
+        order = Order.objects.create(customer=customer, product=product)
         order.save()
 
         return CreateOrder(order)

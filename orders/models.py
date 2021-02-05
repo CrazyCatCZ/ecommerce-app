@@ -4,7 +4,6 @@ from products.models import Product
 
 
 class Order(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
     customer = models.ForeignKey(Customer, blank=True, null=True, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
@@ -13,5 +12,10 @@ class Order(models.Model):
         return self.quantity * self.product.price
 
     def __str__(self):
-        return f'{self.quantity} amount of {self.product.title} from {self.user.username}'
+        if self.customer.user:
+            username = self.customer.user.username
+        else: 
+            username = self.customer.session_id
+
+        return f'{self.quantity} amount of {self.product.title} from {username}'
 
