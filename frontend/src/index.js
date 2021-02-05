@@ -33,7 +33,10 @@ const httpLink = createHttpLink({
 const authLink = setContext((_, { headers }) => {
   // Get csrftoken from Cookies
   const csrftoken = Cookies.get("csrftoken");
+<<<<<<< HEAD
   checkCart();
+=======
+>>>>>>> 318ada3d90912f0aab9f564a4e749c87fe2996a6
 
   // Return the headers to the context so httpLink can read them
   return {
