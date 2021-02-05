@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import Cookies from "js-cookie";
-import { v4 as uuidv4 } from "uuid";
 import { BrowserRouter as Router } from "react-router-dom";
 import { setContext } from "@apollo/client/link/context";
 import {
@@ -16,11 +15,11 @@ import {
 const BASE_URL = "http://127.0.0.1:8000";
 const EXPIRES_IN_ONE_YEAR = 360;
 
-const checkSessionID = () => {
-  const sessionID = Cookies.get("session-id");
+const checkCart = () => {
+  const cart = Cookies.get("cart");
 
-  if (sessionID === undefined) {
-    Cookies.set("session-id", uuidv4(), { expires: EXPIRES_IN_ONE_YEAR });
+  if (cart === undefined) {
+    Cookies.set("cart", {}, { expires: EXPIRES_IN_ONE_YEAR });
   }
 };
 
@@ -34,7 +33,7 @@ const httpLink = createHttpLink({
 const authLink = setContext((_, { headers }) => {
   // Get csrftoken from Cookies
   const csrftoken = Cookies.get("csrftoken");
-  checkSessionID();
+  checkCart();
 
   // Return the headers to the context so httpLink can read them
   return {

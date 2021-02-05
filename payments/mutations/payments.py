@@ -41,4 +41,5 @@ class CreateCheckoutSession(graphene.Mutation):
             cancel_url=f'{BASE_URL}',
         )
 
+        print(session)
         return CreateCheckoutSession(session=session)

@@ -1,4 +1,7 @@
 import graphene
+import json
+from django.http import HttpResponse  
+from backend.urls import CustomGraphQLView
 from graphene_django import DjangoObjectType
 from .models import Product
 

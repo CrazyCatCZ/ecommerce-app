@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Cookies from "js-cookie";
 import { useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
 import {
@@ -18,7 +19,13 @@ const SubProductDetail = ({
   orderIsAlreadyInCart: { orderIsAlreadyInCart },
 }) => {
   const history = useHistory();
-  const [createOrder, { loading }] = useMutation(ORDER_CREATE_MUTATION);
+  const [createOrder, { data: createData, loading }] = useMutation(
+    ORDER_CREATE_MUTATION
+  );
+
+  useEffect(() => {
+    console.log(createData);
+  }, [createData]);
 
   const handleOnCreateOrder = async () => {
     await createOrder({
