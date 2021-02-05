@@ -18,29 +18,35 @@ class OrderQuery(graphene.ObjectType):
     total_price_of_orders = graphene.Int()
 
     def resolve_all_orders(self, info):
-        user = info.context.user
         return Order.objects.all()
 
     def resolve_user_orders(self, info):
-        #user = info.context.user
-        user = User.objects.get(username='admin')
-        return Order.objects.filter(user=user)
+        request = info.context
+        print(request.COOKIES)
+        print('test')
+        user = request.user
+        customer = returnCustomer(user, request)
+
+        return Order.objects.filter(customer=customer)
 
     def resolve_total_orders(self, info):
         user = info.context.user
         return Order.objects.all().count()
     
     def resolve_order_is_already_in_cart(self, info, product_id):
-        #user = info.context.user
-        user = User.objects.get(username='admin')
+        request = info.context
+        user = request.user
+        customer = returnCustomer(user, request)
         product = Product.objects.get(id=product_id)
-        return Order.objects.filter(user=user, product=product).count() != 0
+
+        return Order.objects.filter(customer=customer, product=product).count() != 0
          
 
     def resolve_total_price_of_orders(self, info):
-        #user = info.context.user
-        user = User.objects.get(username='admin')
-        user_orders = Order.objects.filter(user=user)
+        request = info.context
+        user = request.user
+        customer = returnCustomer(user, request)
+        user_orders = Order.objects.filter(customer=customer)
         total_price = 0
 
         for order in user_orders:

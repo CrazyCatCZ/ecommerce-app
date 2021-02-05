@@ -4,6 +4,15 @@ from users.models import User, Customer
 from orders.models import Order
 from products.models import Product
 
+def returnCustomer(user, request):
+    if user.is_anonymous:
+        session_id = request.COOKIES['session-id']
+        customer, created = Customer.objects.get_or_create(session_id=session_id)
+    else:
+        customer = user.customer
+    
+    return customer
+
 
 class OrderType(DjangoObjectType):
     class Meta:
@@ -20,12 +29,7 @@ class CreateOrder(graphene.Mutation):
         request = info.context
         user = request.user
         product = Product.objects.get(id=product_id)
-
-        if user.is_anonymous:
-            session_id = request.COOKIES['session-id']
-            customer, created = Customer.objects.get_or_create()
-        else:
-            customer = user.customer
+        customer = returnCustomer(user, request)
 
         order = Order.objects.create(customer=customer, product=product)
         order.save()
@@ -87,9 +91,11 @@ class ClearOrders(graphene.Mutation):
     message = graphene.String()
 
     def mutate(cls, info):
-        #user = info.context.user
-        user = User.objects.get(username="admin")
-        user_orders = Order.objects.filter(user=user)
+        request = info.context
+        user = request.user
+        customer = returnCustomer(user, request)
+
+        user_orders = Order.objects.filter(customer=customer)
 
         for order in user_orders:
             order.delete()

@@ -11,7 +11,7 @@ PRODUCT_PRICE = os.environ.get('STRIPE_COFFEE_PRODUCT')
 
 #BASE_URL = os.environ.get('WEBSITE_BASE_URL')
 CENTS_TO_DOLLARS = 100
-BASE_URL = 'http://localhost:3000'
+BASE_URL = 'http://127.0.0.1:8000'
 IMAGE_URL = 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
 
 class CreateCheckoutSession(graphene.Mutation):
