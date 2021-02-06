@@ -26,8 +26,7 @@ const checkSessionID = () => {
 
 const httpLink = createHttpLink({
   uri: `${BASE_URL}/graphql/`,
-  credentials: "same-origin",
-  //fetch: customFetch,
+  credentials: "include",
 });
 
 // Access token is send through httponly cookie
