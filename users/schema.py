@@ -12,6 +12,8 @@ class UserMutation(AuthMutation, graphene.ObjectType):
     
 class UserQuery(graphene.ObjectType):
     me = graphene.Field(UserType)
+    all_users = graphene.List(UserType)
+    all_customers = graphene.List(CustomerType)
 
     def resolve_me(self, info):
         user = info.context.user
@@ -20,3 +22,9 @@ class UserQuery(graphene.ObjectType):
             return user
         else:
             return None
+
+    def resolve_all_users(self, info):
+        return User.objects.all()
+    
+    def resolve_all_customers(self, info):
+        return Customer.objects.all()

@@ -4,13 +4,13 @@ from users.models import User, Customer
 from orders.models import Order
 from products.models import Product
 
-def returnCustomer(user, request):
+def return_customer(user, request):
     if user.is_anonymous:
         session_id = request.COOKIES['session-id']
         customer, created = Customer.objects.get_or_create(session_id=session_id)
     else:
         customer = user.customer
-    
+
     return customer
 
 
@@ -29,7 +29,7 @@ class CreateOrder(graphene.Mutation):
         request = info.context
         user = request.user
         product = Product.objects.get(id=product_id)
-        customer = returnCustomer(user, request)
+        customer = return_customer(user, request)
 
         order = Order.objects.create(customer=customer, product=product)
         order.save()
@@ -45,7 +45,6 @@ class DeleteOrder(graphene.Mutation):
 
     def mutate(cls, info, order_id):
         #user = info.context.user
-        user = User.objects.get(username="admin")
         order = Order.objects.get(id=order_id)
         order.delete()
 
@@ -61,7 +60,6 @@ class IncreaseQuantity(graphene.Mutation):
 
     def mutate(cls, info, order_id):
         #user = info.context.user
-        user = User.objects.get(username="admin")
         order = Order.objects.get(id=order_id)
 
         order.quantity += 1
@@ -78,7 +76,6 @@ class DecreaseQuantity(graphene.Mutation):
 
     def mutate(cls, info, order_id):
         #user = info.context.user
-        user = User.objects.get(username="admin")
         order = Order.objects.get(id=order_id)
 
         order.quantity -= 1
@@ -93,7 +90,7 @@ class ClearOrders(graphene.Mutation):
     def mutate(cls, info):
         request = info.context
         user = request.user
-        customer = returnCustomer(user, request)
+        customer = return_customer(user, request)
 
         user_orders = Order.objects.filter(customer=customer)
 

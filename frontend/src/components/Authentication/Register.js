@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+const SignUp = ({ user }) => {
   const classes = useStyles();
   const history = useHistory();
   const [register, { data: registerData, loading }] = useMutation(
@@ -122,118 +122,126 @@ export default function SignUp() {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign Up
-        </Typography>
-        <form onSubmit={handleOnRegister} className={classes.form}>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                onChange={(e) => setUsername(e.target.value)}
-                error={usernameMessageError !== "" ? true : false}
-                helperText={
-                  usernameMessageError !== "" ? usernameMessageError : ""
-                }
-                autoComplete="username"
-                name="username"
-                variant="outlined"
-                id="username"
-                label="Username"
-                autoFocus
-                required
-                fullWidth
-                InputLabelProps={{ required: false }}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                onChange={(e) => setEmail(e.target.value)}
-                error={emailMessageError !== "" ? true : false}
-                helperText={emailMessageError !== "" ? emailMessageError : ""}
-                variant="outlined"
-                id="email"
-                label="Email"
-                name="email"
-                autoComplete="email"
-                required
-                fullWidth
-                InputLabelProps={{ required: false }}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                onChange={(e) => setPassword(e.target.value)}
-                error={passwordMessageError !== "" ? true : false}
-                helperText={
-                  passwordMessageError !== "" ? passwordMessageError : ""
-                }
-                type={showPasswords ? "text" : "password"}
-                variant="outlined"
-                name="password"
-                label="Password"
-                id="password"
-                autoComplete="current-password"
-                required
-                fullWidth
-                InputLabelProps={{ required: false }}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                onChange={(e) => setPasswordConfirm(e.target.value)}
-                error={passwordConfirmMessageError !== "" ? true : false}
-                helperText={
-                  passwordConfirmMessageError !== ""
-                    ? passwordConfirmMessageError
-                    : ""
-                }
-                type={showPasswords ? "text" : "password"}
-                variant="outlined"
-                name="password"
-                label="Confirm Password"
-                id="confirm-password"
-                autoComplete="confirm-password"
-                fullWidth
-                required
-                InputLabelProps={{ required: false }}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    onClick={() => setShowPasswords(!showPasswords)}
-                    value="allowExtraEmails"
-                    color="primary"
+    <>
+      {user === null ? (
+        <Container component="main" maxWidth="xs">
+          <div className={classes.paper}>
+            <Avatar className={classes.avatar}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Sign Up
+            </Typography>
+            <form onSubmit={handleOnRegister} className={classes.form}>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <TextField
+                    onChange={(e) => setUsername(e.target.value)}
+                    error={usernameMessageError !== "" ? true : false}
+                    helperText={
+                      usernameMessageError !== "" ? usernameMessageError : ""
+                    }
+                    autoComplete="username"
+                    name="username"
+                    variant="outlined"
+                    id="username"
+                    label="Username"
+                    autoFocus
+                    required
+                    fullWidth
+                    InputLabelProps={{ required: false }}
                   />
-                }
-                label="Show Passwords"
-              />
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            className={classes.submitButton}
-            disabled={loading}
-            fullWidth
-            variant="contained"
-            color="primary"
-          >
-            Sign Up
-          </Button>
-          <Typography color="textSecondary">
-            Already have an account?
-            <Link to="/" className={classes.loginLink}>
-              Sign In
-            </Link>
-          </Typography>
-        </form>
-      </div>
-    </Container>
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    onChange={(e) => setEmail(e.target.value)}
+                    error={emailMessageError !== "" ? true : false}
+                    helperText={
+                      emailMessageError !== "" ? emailMessageError : ""
+                    }
+                    variant="outlined"
+                    id="email"
+                    label="Email"
+                    name="email"
+                    autoComplete="email"
+                    required
+                    fullWidth
+                    InputLabelProps={{ required: false }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    onChange={(e) => setPassword(e.target.value)}
+                    error={passwordMessageError !== "" ? true : false}
+                    helperText={
+                      passwordMessageError !== "" ? passwordMessageError : ""
+                    }
+                    type={showPasswords ? "text" : "password"}
+                    variant="outlined"
+                    name="password"
+                    label="Password"
+                    id="password"
+                    autoComplete="current-password"
+                    required
+                    fullWidth
+                    InputLabelProps={{ required: false }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    onChange={(e) => setPasswordConfirm(e.target.value)}
+                    error={passwordConfirmMessageError !== "" ? true : false}
+                    helperText={
+                      passwordConfirmMessageError !== ""
+                        ? passwordConfirmMessageError
+                        : ""
+                    }
+                    type={showPasswords ? "text" : "password"}
+                    variant="outlined"
+                    name="password"
+                    label="Confirm Password"
+                    id="confirm-password"
+                    autoComplete="confirm-password"
+                    fullWidth
+                    required
+                    InputLabelProps={{ required: false }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onClick={() => setShowPasswords(!showPasswords)}
+                        value="allowExtraEmails"
+                        color="primary"
+                      />
+                    }
+                    label="Show Passwords"
+                  />
+                </Grid>
+              </Grid>
+              <Button
+                type="submit"
+                className={classes.submitButton}
+                disabled={loading}
+                fullWidth
+                variant="contained"
+                color="primary"
+              >
+                Sign Up
+              </Button>
+              <Typography color="textSecondary">
+                Already have an account?
+                <Link to="/" className={classes.loginLink}>
+                  Sign In
+                </Link>
+              </Typography>
+            </form>
+          </div>
+        </Container>
+      ) : null}
+    </>
   );
-}
+};
+
+export default SignUp;

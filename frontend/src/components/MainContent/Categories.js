@@ -27,28 +27,42 @@ const Categories = ({ setCategory }) => {
         <div className="collapse navbar-collapse" id="basicExampleNav">
           <ul onClick={handleOnCategoryChange} className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link className="nav-link">All</Link>
+              <Link to="/" className="nav-link">
+                All
+              </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link">Clothing</Link>
+              <Link to="/" className="nav-link">
+                Clothing
+              </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link">Notebooks</Link>
+              <Link to="/" className="nav-link">
+                Notebooks
+              </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link">Computers</Link>
+              <Link to="/" className="nav-link">
+                Computers
+              </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link">Smartphones</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link">Tablets</Link>
+              <Link to="/" className="nav-link">
+                Tablets
+              </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link">Headphones</Link>
+              <Link to="/" className="nav-link">
+                Headphones
+              </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link">Cameras</Link>
+              <Link to="/" className="nav-link">
+                Cameras
+              </Link>
             </li>
           </ul>
         </div>

@@ -22,10 +22,8 @@ class OrderQuery(graphene.ObjectType):
 
     def resolve_user_orders(self, info):
         request = info.context
-        print(request.COOKIES)
-        print('test')
         user = request.user
-        customer = returnCustomer(user, request)
+        customer = return_customer(user, request)
 
         return Order.objects.filter(customer=customer)
 
@@ -36,7 +34,7 @@ class OrderQuery(graphene.ObjectType):
     def resolve_order_is_already_in_cart(self, info, product_id):
         request = info.context
         user = request.user
-        customer = returnCustomer(user, request)
+        customer = return_customer(user, request)
         product = Product.objects.get(id=product_id)
 
         return Order.objects.filter(customer=customer, product=product).count() != 0
@@ -45,7 +43,7 @@ class OrderQuery(graphene.ObjectType):
     def resolve_total_price_of_orders(self, info):
         request = info.context
         user = request.user
-        customer = returnCustomer(user, request)
+        customer = return_customer(user, request)
         user_orders = Order.objects.filter(customer=customer)
         total_price = 0
 

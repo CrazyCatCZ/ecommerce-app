@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ORDER_TOTAl_ORDERS_QUERY } from "../Api/order/order";
 import NavbarRightItems from "./NavbarRightItems";
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
   const { data: totalOrders } = useQuery(ORDER_TOTAl_ORDERS_QUERY);
 
   return (
@@ -38,7 +38,7 @@ const Navbar = () => {
             </ul>
 
             {totalOrders ? (
-              <NavbarRightItems totalOrders={totalOrders} />
+              <NavbarRightItems user={user} totalOrders={totalOrders} />
             ) : null}
           </div>
         </div>

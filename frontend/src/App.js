@@ -26,16 +26,23 @@ function App() {
     }
   }, [meQuery]);
 
+  console.log(user);
+
   return (
     <div>
       <main>
-        {true && loading === false ? (
+        {loading === false ? (
           <>
-            <Navbar />
+            <Navbar user={user} />
             <Switch>
               <Route path="/checkout" component={Checkout} />
               <Route path="/order-summary" component={OrderSummary} />
               <Route path="/product/:id" component={ProductDetail} />
+              <Route path="/login" component={() => <Login user={user} />} />
+              <Route
+                path="/register"
+                component={() => <Register user={user} />}
+              />
               <Route path="/">
                 <>
                   <Message />
@@ -44,16 +51,7 @@ function App() {
               </Route>
             </Switch>
           </>
-        ) : (
-          <>
-            {loading === false ? (
-              <Switch>
-                <Route path="/register" component={Register} />
-                <Route path="/" component={Login} />
-              </Switch>
-            ) : null}
-          </>
-        )}
+        ) : null}
       </main>
     </div>
   );
