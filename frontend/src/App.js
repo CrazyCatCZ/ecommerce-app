@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import { Switch, Route } from "react-router-dom";
 import { USER_ME_QUERY } from "./components/Api/user";
 import { UserContext } from "./components/Context/UserContext";
+import PrivateRoute from "./components/PrivateRoute";
 
 import Navbar from "./components/Navbar/Navbar";
 import MainContent from "./components/MainContent/MainContent";
@@ -28,6 +29,8 @@ function App() {
     }
   }, [meQuery]);
 
+  console.log(user);
+
   return (
     <div>
       <main>
@@ -35,7 +38,9 @@ function App() {
           <UserContext.Provider value={userValue}>
             <Navbar />
             <Switch>
-              <Route path="/checkout" component={Checkout} />
+              {user ? (
+                <PrivateRoute path="/checkout" component={Checkout} />
+              ) : null}
               <Route path="/order-summary" component={OrderSummary} />
               <Route path="/product/:id" component={ProductDetail} />
               <Route path="/login" component={Login} />

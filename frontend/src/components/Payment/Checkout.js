@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
-import { UserContext } from "../Context/UserContext";
 import {
   ORDER_USER_LIST_QUERY,
   ORDER_TOTAL_PRICE_QUERY,
@@ -11,19 +9,9 @@ import SubCheckout from "./SubCheckout";
 import Modal from "./Modal";
 
 const Checkout = () => {
-  const history = useHistory();
-  const { user } = useContext(UserContext);
-
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const { data: orders } = useQuery(ORDER_USER_LIST_QUERY);
   const { data: totalPrice } = useQuery(ORDER_TOTAL_PRICE_QUERY);
-
-  useEffect(() => {
-    console.log(user === null);
-    if (user === null) {
-      history.push("/login");
-    }
-  }, [user, history]);
 
   return (
     <>
