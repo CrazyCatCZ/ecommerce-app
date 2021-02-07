@@ -12,10 +12,15 @@ class Order(models.Model):
         return self.quantity * self.product.price
 
     def __str__(self):
-        if self.customer.user:
-            username = self.customer.user.username
+        user = self.customer
+
+        if user is not None:
+            if self.user.username:
+                username = self.user.username
+            else:
+                username = self.user.session_id
         else: 
-            username = self.customer.session_id
+            username = '-'
 
         return f'{self.quantity} amount of {self.product.title} from {username}'
 
