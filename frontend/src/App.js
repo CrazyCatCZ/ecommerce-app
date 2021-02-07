@@ -38,9 +38,7 @@ function App() {
           <UserContext.Provider value={userValue}>
             <Navbar />
             <Switch>
-              {user ? (
-                <PrivateRoute path="/checkout" component={Checkout} />
-              ) : null}
+              <PrivateRoute path="/checkout" component={Checkout} />
               <Route path="/order-summary" component={OrderSummary} />
               <Route path="/product/:id" component={ProductDetail} />
               <Route path="/login" component={Login} />

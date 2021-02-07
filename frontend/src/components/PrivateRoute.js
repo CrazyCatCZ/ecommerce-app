@@ -1,12 +1,23 @@
-import React, { useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { UserContext } from "./Context/UserContext";
 
 const PrivateRoute = ({ component: Component }) => {
+  const [allow, setAllow] = useState(false);
   const { user } = useContext(UserContext);
 
+  useEffect(() => {
+    setAllow(true);
+  }, []);
+
   return (
-    <Route render={() => (user ? <Component /> : <Redirect to="/login" />)} />
+    <>
+      {allow ? (
+        <Route
+          render={() => (user ? <Component /> : <Redirect to="/login" />)}
+        />
+      ) : null}
+    </>
   );
 };
 
