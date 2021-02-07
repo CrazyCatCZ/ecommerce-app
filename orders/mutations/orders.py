@@ -7,13 +7,10 @@ from products.models import Product
 def return_customer(user, request):
     if user.is_anonymous:
         session_id = request.COOKIES['session-id']
-        customer = Customer.objects.filter(session_id=session_id).first()
-        
-        if not customer:
-            customer = Customer.objects.create(session_id=session_id)
-
+        customer, created = Customer.objects.get_or_create(session_id=session_id)
     else:
         customer = user.customer
+        print(customer)
 
     return customer
 

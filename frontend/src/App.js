@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useQuery } from "@apollo/client";
 import { Switch, Route } from "react-router-dom";
 import { USER_ME_QUERY } from "./components/Api/user";
+import { UserContext } from "./components/Context/UserContext";
 
 import Navbar from "./components/Navbar/Navbar";
 import MainContent from "./components/MainContent/MainContent";
@@ -15,6 +16,7 @@ import "./App.css";
 
 function App() {
   const [user, setUser] = useState(null);
+  const userValue = useMemo(() => ({ user, setUser }), [user, setUser]);
   const { data: meQuery, loading } = useQuery(USER_ME_QUERY, {
     fetchPolicy: "network-only",
   });
@@ -26,13 +28,11 @@ function App() {
     }
   }, [meQuery]);
 
-  console.log(user);
-
   return (
     <div>
       <main>
         {loading === false ? (
-          <>
+          <UserContext.Provider value={userValue}>
             <Navbar user={user} />
             <Switch>
               <Route path="/checkout" component={Checkout} />
@@ -50,7 +50,7 @@ function App() {
                 </>
               </Route>
             </Switch>
-          </>
+          </UserContext.Provider>
         ) : null}
       </main>
     </div>

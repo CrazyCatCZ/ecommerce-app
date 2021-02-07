@@ -1,7 +1,19 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { UserContext } from "../Context/UserContext";
+import { Link, useHistory } from "react-router-dom";
 
 const OrderBottom = ({ totalPrice: { totalPriceOfOrders } }) => {
+  const history = useHistory();
+  const { user } = useContext(UserContext);
+
+  const handleOnCheckoutClick = () => {
+    if (user) {
+      history.push("/checkout");
+    } else {
+      history.push("/login");
+    }
+  };
+
   return (
     <>
       <tr>
@@ -14,10 +26,13 @@ const OrderBottom = ({ totalPrice: { totalPriceOfOrders } }) => {
       </tr>
       <tr>
         <td colSpan="5">
-          <Link className="btn btn-warning float-right ml-2" to="/checkout">
+          <Link
+            onClick={handleOnCheckoutClick}
+            className="btn btn-warning float-right ml-2"
+          >
             Proceed to checkout
           </Link>
-          <Link className="btn btn-primary float-right" to="/">
+          <Link to="/" className="btn btn-primary float-right">
             Continue shopping
           </Link>
         </td>

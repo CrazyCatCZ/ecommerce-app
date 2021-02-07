@@ -11,9 +11,6 @@ const NavbarRightItems = ({ user, totalOrders: { totalOrders } }) => {
     window.location.reload(); // Reset page
   };
 
-  console.log("test");
-  console.log(user);
-
   return (
     <>
       <ul className="navbar-nav nav-flex-icons">
