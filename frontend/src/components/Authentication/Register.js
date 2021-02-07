@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useMutation } from "@apollo/client";
 import { useHistory, Link } from "react-router-dom";
 import { USER_REGISTER_MUTATION } from "../Api/user";
+import { UserContext } from "../Context/UserContext";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
@@ -43,9 +44,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignUp = ({ user }) => {
+const SignUp = () => {
   const classes = useStyles();
   const history = useHistory();
+  const { user } = useContext(UserContext);
+
   const [register, { data: registerData, loading }] = useMutation(
     USER_REGISTER_MUTATION
   );

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../Context/UserContext";
 import { useMutation } from "@apollo/client";
 import { USER_DELETE_TOKENS_MUTATION } from "../Api/user";
 import { Link } from "react-router-dom";
 
-const NavbarRightItems = ({ user, totalOrders: { totalOrders } }) => {
+const NavbarRightItems = ({ totalOrders: { totalOrders } }) => {
+  const { user } = useContext(UserContext);
   const [deleteTokens] = useMutation(USER_DELETE_TOKENS_MUTATION);
 
   const handleOnLogout = async () => {

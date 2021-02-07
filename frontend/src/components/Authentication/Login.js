@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useMutation, useApolloClient } from "@apollo/client";
 import { useHistory, Link } from "react-router-dom";
 import { USER_LOGIN_MUTATION } from "../Api/user";
+import { UserContext } from "../Context/UserContext";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
@@ -45,9 +46,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignIn = ({ user }) => {
+const SignIn = () => {
   const classes = useStyles();
   const history = useHistory();
+  const { user } = useContext(UserContext);
 
   const client = useApolloClient();
   const [login, { data: loginData, loading }] = useMutation(

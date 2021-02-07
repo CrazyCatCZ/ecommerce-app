@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
-import { UserContext } from "../Context/UserContext";
 import { Link, useHistory } from "react-router-dom";
+import { UserContext } from "../Context/UserContext";
 
 const OrderBottom = ({ totalPrice: { totalPriceOfOrders } }) => {
   const history = useHistory();
   const { user } = useContext(UserContext);
 
   const handleOnCheckoutClick = () => {
+    console.log(user === null);
     if (user) {
       history.push("/checkout");
     } else {

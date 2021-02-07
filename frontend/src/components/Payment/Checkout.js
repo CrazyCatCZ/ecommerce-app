@@ -11,14 +11,15 @@ import SubCheckout from "./SubCheckout";
 import Modal from "./Modal";
 
 const Checkout = () => {
-  const { user } = useContext(UserContext);
   const history = useHistory();
+  const { user } = useContext(UserContext);
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const { data: orders } = useQuery(ORDER_USER_LIST_QUERY);
   const { data: totalPrice } = useQuery(ORDER_TOTAL_PRICE_QUERY);
 
   useEffect(() => {
+    console.log(user === null);
     if (user === null) {
       history.push("/login");
     }
