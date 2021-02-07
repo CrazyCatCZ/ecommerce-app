@@ -28,8 +28,11 @@ class OrderQuery(graphene.ObjectType):
         return Order.objects.filter(customer=customer)
 
     def resolve_total_orders(self, info):
-        user = info.context.user
-        return Order.objects.all().count()
+        request = info.context
+        user = request.user
+        customer = return_customer(user, request)
+        
+        return Order.objects.filter(customer=customer).count()
     
     def resolve_order_is_already_in_cart(self, info, product_id):
         request = info.context

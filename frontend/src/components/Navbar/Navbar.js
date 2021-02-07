@@ -6,6 +6,7 @@ import NavbarRightItems from "./NavbarRightItems";
 
 const Navbar = ({ user }) => {
   const { data: totalOrders } = useQuery(ORDER_TOTAl_ORDERS_QUERY);
+  console.log(totalOrders);
 
   return (
     <>

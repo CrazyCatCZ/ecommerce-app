@@ -28,7 +28,7 @@ const NavbarRightItems = ({ user, totalOrders: { totalOrders } }) => {
         </li>
         {user ? (
           <li className="nav-item">
-            <Link to="/" className="nav-link waves-effect">
+            <Link className="nav-link waves-effect">
               <span
                 onClick={handleOnLogout}
                 className="clearfix d-none d-sm-inline-block"
