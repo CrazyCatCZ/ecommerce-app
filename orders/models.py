@@ -7,6 +7,7 @@ class Order(models.Model):
     customer = models.ForeignKey(Customer, blank=True, null=True, on_delete=models.SET_NULL)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
+    ordered = models.BooleanField(default=False)
 
     def calculate_total_price(self):
         return self.quantity * self.product.price

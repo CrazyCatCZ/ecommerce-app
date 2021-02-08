@@ -33,12 +33,14 @@ class CreateCheckoutSession(graphene.Mutation):
                         'name': 'E-Commerce Payment',
                         'images': [IMAGE_URL]
                     },
-                },
+                }, 
                 'quantity': 1,
             }],
             mode='payment',
             success_url=f'{BASE_URL}?success=true',
             cancel_url=f'{BASE_URL}',
         )
+
+        print(session)
 
         return CreateCheckoutSession(session=session)

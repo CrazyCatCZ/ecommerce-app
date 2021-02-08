@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser
 
 
 class Customer(models.Model):
@@ -11,4 +11,3 @@ class Customer(models.Model):
             return self.user.username
         else:
             return self.session_id
-    
