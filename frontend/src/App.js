@@ -29,8 +29,6 @@ function App() {
     }
   }, [meQuery]);
 
-  console.log(user);
-
   return (
     <div>
       <main>

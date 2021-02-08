@@ -9,6 +9,7 @@ import {
   ORDER_TOTAl_ORDERS_QUERY,
   ORDER_IS_ALREADY_IN_CART_QUERY,
   ORDER_TOTAL_PRICE_QUERY,
+  ORDER_SOMETHING_IS_IN_CART_QUERY,
 } from "../Api/order/order";
 
 const ItemOrder = ({
@@ -40,6 +41,7 @@ const ItemOrder = ({
         { query: ORDER_USER_LIST_QUERY },
         { query: ORDER_TOTAl_ORDERS_QUERY },
         { query: ORDER_TOTAL_PRICE_QUERY },
+        { query: ORDER_SOMETHING_IS_IN_CART_QUERY },
         { variables: { productId }, query: ORDER_IS_ALREADY_IN_CART_QUERY },
       ],
     });

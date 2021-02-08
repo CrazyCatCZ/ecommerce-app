@@ -29,6 +29,12 @@ export const ORDER_IS_ALREADY_IN_CART_QUERY = gql`
   }
 `;
 
+export const ORDER_SOMETHING_IS_IN_CART_QUERY = gql`
+  query {
+    somethingIsInCart
+  }
+`;
+
 // Mutations
 export const ORDER_CREATE_MUTATION = gql`
   mutation($productId: ID!) {

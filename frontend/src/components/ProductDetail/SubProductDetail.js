@@ -7,6 +7,7 @@ import {
   ORDER_IS_ALREADY_IN_CART_QUERY,
   ORDER_TOTAL_PRICE_QUERY,
   ORDER_TOTAl_ORDERS_QUERY,
+  ORDER_SOMETHING_IS_IN_CART_QUERY,
 } from "../Api/order/order";
 
 const PUBLIC_FOLDER = process.env.PUBLIC_URL;
@@ -25,9 +26,10 @@ const SubProductDetail = ({
       variables: { productId: id },
       refetchQueries: [
         { query: ORDER_USER_LIST_QUERY },
-        { variables: { productId: id }, query: ORDER_IS_ALREADY_IN_CART_QUERY },
         { query: ORDER_TOTAL_PRICE_QUERY },
         { query: ORDER_TOTAl_ORDERS_QUERY },
+        { query: ORDER_SOMETHING_IS_IN_CART_QUERY },
+        { variables: { productId: id }, query: ORDER_IS_ALREADY_IN_CART_QUERY },
       ],
     });
     history.push("/order-summary");
