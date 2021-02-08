@@ -78,7 +78,7 @@ const SignIn = () => {
         setPassword("");
       }
     }
-  }, [loginData, history, client, somethingIsInCart]);
+  }, [loginData, history, client]);
 
   const handleOnLogin = async (e) => {
     e.preventDefault();
