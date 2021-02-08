@@ -16,15 +16,15 @@ const Categories = ({ setCategory }) => {
           className="navbar-toggler"
           type="button"
           data-toggle="collapse"
-          data-target="#basicExampleNav"
-          aria-controls="basicExampleNav"
+          data-target="#categoriesMenu"
+          aria-controls="categoriesMenu"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="basicExampleNav">
+        <div className="collapse navbar-collapse" id="categoriesMenu">
           <ul onClick={handleOnCategoryChange} className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link to="/" className="nav-link">
