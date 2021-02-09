@@ -24,4 +24,3 @@ class Order(models.Model):
             username = '-'
 
         return f'{self.quantity} amount of {self.product.title} from {username}'
-

@@ -10,6 +10,8 @@ def return_customer(user, request):
         customer, created = Customer.objects.get_or_create(session_id=session_id)
     else:
         customer = user.customer
+
+    print(customer)
         
     return customer
 
