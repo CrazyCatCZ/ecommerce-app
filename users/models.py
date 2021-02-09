@@ -10,9 +10,3 @@ class Customer(models.Model):
             return self.user.username
         else:
             return self.session_id
-
-
-class CustomUser(AbstractUser):
-    customer = models.OneToOneField(
-        Customer, blank=True, null=True, on_delete=models.SET_NULL
-)

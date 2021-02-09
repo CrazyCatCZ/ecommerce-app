@@ -37,8 +37,8 @@ class Register(DjangoModelFormMutation):
         session_id = request.COOKIES['session-id']
 
         customer, created = Customer.objects.get_or_create(session_id=session_id)
-        customer.user = self.user
-        customer.save()
+        self.user.customer = customer
+        self.user.save()
 
         return self.user
 

@@ -22,8 +22,6 @@ CORS_ALLOWED_ORIGINS = [
 ROOT_URLCONF = 'backend.urls'
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-AUTH_USER_MODEL = 'users.CustomUser'
-
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 
