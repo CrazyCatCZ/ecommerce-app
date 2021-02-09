@@ -24,7 +24,7 @@ class UserQuery(graphene.ObjectType):
             return None
 
     def resolve_all_users(self, info):
-        return User.objects.all()
+        return CustomUser.objects.all()
     
     def resolve_all_customers(self, info):
         return Customer.objects.all()
