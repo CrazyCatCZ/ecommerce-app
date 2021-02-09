@@ -1,13 +1,15 @@
 from django.db import models
-from django.contrib.auth.models import User, AbstractUser
+from django.contrib.auth.models import AbstractUser
 
 
 class Customer(models.Model):
-    user = models.OneToOneField(User, blank=True, null=True, on_delete=models.CASCADE)
     session_id = models.CharField(unique=True, max_length=100)
 
     def __str__(self):
-        if self.user:
-            return self.user.username
-        else:
-            return self.session_id
+        return self.session_id
+
+
+class CustomUser(AbstractUser):
+    customer = models.ForeignKey(
+        Customer, blank=True, null=True, on_delete=models.SET_NULL
+    )

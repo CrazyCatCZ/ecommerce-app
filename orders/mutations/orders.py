@@ -1,6 +1,6 @@
 import graphene
 from graphene_django import DjangoObjectType
-from users.models import User, Customer
+from users.models import Customer
 from orders.models import Order
 from products.models import Product
 
@@ -10,6 +10,8 @@ def return_customer(user, request):
         customer, created = Customer.objects.get_or_create(session_id=session_id)
     else:
         customer = user.customer
+
+    print(customer)
         
     return customer
 
