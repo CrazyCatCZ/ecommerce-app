@@ -6,12 +6,12 @@ from graphene_django.forms.mutation import DjangoModelFormMutation
 from django.contrib.auth import authenticate, login, logout
 from graphql_jwt.decorators import login_required
 
-from users.models import CustomUser, Customer
+from users.models import User, Customer
 
 
 class UserType(DjangoObjectType):
     class Meta:
-        model = CustomUser
+        model = User
 
 class CustomerType(DjangoObjectType):
     class Meta:
@@ -21,7 +21,7 @@ class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True, max_length=100) 
 
     class Meta:
-        model = CustomUser
+        model = User
         fields = ['username', 'email', 'password1', 'password2']
 
 
@@ -36,9 +36,11 @@ class Register(DjangoModelFormMutation):
         request = info.context
         session_id = request.COOKIES['session-id']
 
+        print(self.user)
+
         customer, created = Customer.objects.get_or_create(session_id=session_id)
-        self.user.customer = customer
-        self.user.save()
+        customer.user = self.user
+        customer.save()
 
         return self.user
 
