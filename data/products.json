@@ -4,7 +4,7 @@
     "category": "clothing",
     "price": 129,
     "description": "Shirt ideal for work",
-    "imageName": "denim_shirt.jpg",
+    "image_name": "denim_shirt.jpg",
     "label": null,
     "label_color": null
   },
@@ -13,7 +13,7 @@
     "category": "clothing",
     "price": 169,
     "description": "Modern and comfortable red sweatshirt",
-    "imageName": "red_sweatshirt.jpg",
+    "image_name": "red_sweatshirt.jpg",
     "label": "Bestseller",
     "label_color": "red"
   },
@@ -22,7 +22,7 @@
     "category": "clothing",
     "price": 99,
     "description": "Your gray blouse",
-    "imageName": "grey_blouse.jpg",
+    "image_name": "grey_blouse.jpg",
     "label": null,
     "label_color": null
   },
@@ -31,7 +31,7 @@
     "category": "clothing",
     "price": 219,
     "description": "Cool black jacket",
-    "imageName": "black_jacket.jpg",
+    "image_name": "black_jacket.jpg",
     "label": "New",
     "label_color": "red"
   },
@@ -40,7 +40,7 @@
     "category": "notebooks",
     "price": 789,
     "description": "Advanced black notebook. Ideal for work",
-    "imageName": "black_notebook.jpg",
+    "image_name": "black_notebook.jpg",
     "label": null,
     "label_color": null
   },
@@ -49,7 +49,7 @@
     "category": "notebooks",
     "price": 459,
     "description": "Basic gray notebook",
-    "imageName": "gray_notebook.jpg",
+    "image_name": "gray_notebook.jpg",
     "label": null,
     "label_color": null
   },
@@ -58,7 +58,7 @@
     "category": "notebooks",
     "price": 1159,
     "description": "Gaming notebook for demanding gamers",
-    "imageName": "gaming_notebook.jpg",
+    "image_name": "gaming_notebook.jpg",
     "label": null,
     "label_color": null
   },
@@ -67,7 +67,7 @@
     "category": "computers",
     "price": 1799,
     "description": "Your handy tool",
-    "imageName": "imac.jpg",
+    "image_name": "imac.jpg",
     "label": "Bestseller",
     "label_color": "blue"
   },
@@ -76,7 +76,7 @@
     "category": "smartphones",
     "price": 499,
     "description": "Basic black smartphone",
-    "imageName": "black_smartphone.jpg",
+    "image_name": "black_smartphone.jpg",
     "label": null,
     "label_color": null
   },
@@ -85,7 +85,7 @@
     "category": "smartphones",
     "price": 499,
     "description": "Basic white smartphone",
-    "imageName": "white_smartphone.jpg",
+    "image_name": "white_smartphone.jpg",
     "label": null,
     "label_color": null
   },
@@ -94,7 +94,7 @@
     "category": "smartphones",
     "price": 499,
     "description": "Smartphone with interesting design",
-    "imageName": "yellow_smartphone.jpg",
+    "image_name": "yellow_smartphone.jpg",
     "label": null,
     "label_color": null
   },
@@ -103,7 +103,7 @@
     "category": "tablets",
     "price": 429,
     "description": "Black Apple iPad",
-    "imageName": "black_apple_ipad.jpg",
+    "image_name": "black_apple_ipad.jpg",
     "label": "New",
     "label_color": "red"
   },
@@ -112,7 +112,7 @@
     "category": "tablets",
     "price": 429,
     "description": "White Apple iPad",
-    "imageName": "white_apple_ipad.jpg",
+    "image_name": "white_apple_ipad.jpg",
     "label": "New",
     "label_color": "red"
   },
@@ -121,7 +121,7 @@
     "category": "headphones",
     "price": 39,
     "description": "Basic blue headphones",
-    "imageName": "blue_headphones.jpg",
+    "image_name": "blue_headphones.jpg",
     "label": null,
     "label_color": null
   },
@@ -130,7 +130,7 @@
     "category": "headphones",
     "price": 39,
     "description": "Basic red headphones",
-    "imageName": "red_headphones.jpg",
+    "image_name": "red_headphones.jpg",
     "label": null,
     "label_color": null
   },
@@ -139,7 +139,7 @@
     "category": "headphones",
     "price": 139,
     "description": "Ideal for gamers",
-    "imageName": "gaming_headphones.jpg",
+    "image_name": "gaming_headphones.jpg",
     "label": null,
     "label_color": null
   },
@@ -148,7 +148,7 @@
     "category": "cameras",
     "price": 699,
     "description": "Great tool for lovers of photo taking",
-    "imageName": "black_camera.jpg",
+    "image_name": "black_camera.jpg",
     "label": null,
     "label_color": null
   },
@@ -157,7 +157,7 @@
     "category": "cameras",
     "price": 109,
     "description": "Basic black handycam",
-    "imageName": "black_handycam.jpg",
+    "image_name": "black_handycam.jpg",
     "label": null,
     "label_color": null
   }

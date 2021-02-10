@@ -27,7 +27,7 @@ class Product(models.Model):
     price = models.IntegerField()
     description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='public/assets', default='default.jpg')
-    imageName = models.CharField(max_length=50, default='default.jpg')
+    image_name = models.CharField(max_length=50, default='default.jpg')
     label = models.CharField(
         max_length=10, choices=LABEL_CHOICES, blank=True, null=True
     )
