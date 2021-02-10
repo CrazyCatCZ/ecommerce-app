@@ -1,0 +1,164 @@
+[
+  {
+    "title": "Denim Shirt",
+    "category": "clothing",
+    "price": 129,
+    "description": "Shirt ideal for work",
+    "imageName": "denim_shirt.jpg",
+    "label": null,
+    "label_color": null
+  },
+  {
+    "title": "Sweatshirt",
+    "category": "clothing",
+    "price": 169,
+    "description": "Modern and comfortable red sweatshirt",
+    "imageName": "red_sweatshirt.jpg",
+    "label": "Bestseller",
+    "label_color": "red"
+  },
+  {
+    "title": "Gray Blouse",
+    "category": "clothing",
+    "price": 99,
+    "description": "Your gray blouse",
+    "imageName": "grey_blouse.jpg",
+    "label": null,
+    "label_color": null
+  },
+  {
+    "title": "Black Jacket",
+    "category": "clothing",
+    "price": 219,
+    "description": "Cool black jacket",
+    "imageName": "black_jacket.jpg",
+    "label": "New",
+    "label_color": "red"
+  },
+  {
+    "title": "Black Notebook",
+    "category": "notebooks",
+    "price": 789,
+    "description": "Advanced black notebook. Ideal for work",
+    "imageName": "black_notebook.jpg",
+    "label": null,
+    "label_color": null
+  },
+  {
+    "title": "Gray Notebook",
+    "category": "notebooks",
+    "price": 459,
+    "description": "Basic gray notebook",
+    "imageName": "gray_notebook.jpg",
+    "label": null,
+    "label_color": null
+  },
+  {
+    "title": "Gaming Notebook",
+    "category": "notebooks",
+    "price": 1159,
+    "description": "Gaming notebook for demanding gamers",
+    "imageName": "gaming_notebook.jpg",
+    "label": null,
+    "label_color": null
+  },
+  {
+    "title": "iMac",
+    "category": "computers",
+    "price": 1799,
+    "description": "Your handy tool",
+    "imageName": "imac.jpg",
+    "label": "Bestseller",
+    "label_color": "blue"
+  },
+  {
+    "title": "Black Smartphone",
+    "category": "smartphones",
+    "price": 499,
+    "description": "Basic black smartphone",
+    "imageName": "black_smartphone.jpg",
+    "label": null,
+    "label_color": null
+  },
+  {
+    "title": "White Smartphone",
+    "category": "smartphones",
+    "price": 499,
+    "description": "Basic white smartphone",
+    "imageName": "white_smartphone.jpg",
+    "label": null,
+    "label_color": null
+  },
+  {
+    "title": "Yellow Smartphone",
+    "category": "smartphones",
+    "price": 499,
+    "description": "Smartphone with interesting design",
+    "imageName": "yellow_smartphone.jpg",
+    "label": null,
+    "label_color": null
+  },
+  {
+    "title": "Black iPad",
+    "category": "tablets",
+    "price": 429,
+    "description": "Black Apple iPad",
+    "imageName": "black_apple_ipad.jpg",
+    "label": "New",
+    "label_color": "red"
+  },
+  {
+    "title": "White iPad",
+    "category": "tablets",
+    "price": 429,
+    "description": "White Apple iPad",
+    "imageName": "white_apple_ipad.jpg",
+    "label": "New",
+    "label_color": "red"
+  },
+  {
+    "title": "Blue Headphones",
+    "category": "headphones",
+    "price": 39,
+    "description": "Basic blue headphones",
+    "imageName": "blue_headphones.jpg",
+    "label": null,
+    "label_color": null
+  },
+  {
+    "title": "Red Headphones",
+    "category": "headphones",
+    "price": 39,
+    "description": "Basic red headphones",
+    "imageName": "red_headphones.jpg",
+    "label": null,
+    "label_color": null
+  },
+  {
+    "title": "Gaming Headphones",
+    "category": "headphones",
+    "price": 139,
+    "description": "Ideal for gamers",
+    "imageName": "gaming_headphones.jpg",
+    "label": null,
+    "label_color": null
+  },
+  {
+    "title": "Black Camera",
+    "category": "cameras",
+    "price": 699,
+    "description": "Great tool for lovers of photo taking",
+    "imageName": "black_camera.jpg",
+    "label": null,
+    "label_color": null
+  },
+  {
+    "title": "Black Handycam",
+    "category": "cameras",
+    "price": 109,
+    "description": "Basic black handycam",
+    "imageName": "black_handycam.jpg",
+    "label": null,
+    "label_color": null
+  }
+]
