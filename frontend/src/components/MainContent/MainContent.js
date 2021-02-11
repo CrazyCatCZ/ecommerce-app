@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLazyQuery } from "@apollo/client";
-import { PRODUCT_CATEGORY_QUERY } from "../Api/product/product";
+import { PRODUCT_CATEGORY_QUERY } from "../Api/resolvers/product/product";
 
 import Product from "./Product";
 import Categories from "./Categories";

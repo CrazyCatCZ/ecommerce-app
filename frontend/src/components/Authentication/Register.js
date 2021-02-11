@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useMutation } from "@apollo/client";
 import { useHistory, Link } from "react-router-dom";
-import { USER_REGISTER_MUTATION } from "../Api/user";
+import { USER_REGISTER_MUTATION } from "../Api/resolvers/user";
 import { UserContext } from "../Context/UserContext";
 
 import { makeStyles } from "@material-ui/core/styles";

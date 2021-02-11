@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import {
   ORDER_USER_LIST_QUERY,
   ORDER_TOTAL_PRICE_QUERY,
-} from "../Api/order/order";
+} from "../Api/resolvers/order/order";
 import ItemOrder from "./ItemOrder";
 import EmptyCart from "./EmptyCart";
 import OrderBottom from "./OrderBottom";

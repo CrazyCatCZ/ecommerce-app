@@ -14,7 +14,7 @@ const PrivateRoute = ({ component: Component }) => {
     <>
       {allow ? (
         <Route
-          render={() => (true ? <Component /> : <Redirect to="/login" />)}
+          render={() => (user ? <Component /> : <Redirect to="/login" />)}
         />
       ) : null}
     </>

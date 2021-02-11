@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
-import { HANDLE_PAYMENT_MUTATION } from "../Api/payment";
+import { HANDLE_PAYMENT_MUTATION } from "../Api/resolvers/payment";
 import {
   ORDER_CLEAR_ORDERS_MUTATION,
   ORDER_TOTAl_ORDERS_QUERY,
-} from "../Api/order/order";
+} from "../Api/resolvers/order/order";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { Alert, AlertTitle } from "@material-ui/lab";

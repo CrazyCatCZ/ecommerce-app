@@ -2,10 +2,7 @@ import React from "react";
 import { useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
-import {
-  CREATE_CHECKOUT_SESSION_MUTATION,
-  HANDLE_PAYMENT_MUTATION,
-} from "../Api/payment";
+import { CREATE_CHECKOUT_SESSION_MUTATION } from "../Api/resolvers/payment";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
@@ -37,8 +34,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // Get key from .env file
-//const STRIPE_PUBLIC_KEY = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
-const STRIPE_PUBLIC_KEY = process.env.REACT_APP_STRIPE_LIVE_PUBLIC_KEY;
+const STRIPE_PUBLIC_KEY = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
+//const STRIPE_PUBLIC_KEY = process.env.REACT_APP_STRIPE_LIVE_PUBLIC_KEY;
 const stripePromise = loadStripe(STRIPE_PUBLIC_KEY);
 
 const PaymentModal = ({

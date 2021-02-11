@@ -7,7 +7,7 @@ import {
   ORDER_IS_ALREADY_IN_CART_QUERY,
   ORDER_TOTAL_PRICE_QUERY,
   ORDER_TOTAl_ORDERS_QUERY,
-} from "../Api/order/order";
+} from "../Api/resolvers/order/order";
 
 const PUBLIC_FOLDER = process.env.PUBLIC_URL;
 

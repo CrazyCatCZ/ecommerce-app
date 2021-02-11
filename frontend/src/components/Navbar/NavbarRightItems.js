@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import { useMutation } from "@apollo/client";
-import { USER_DELETE_TOKENS_MUTATION } from "../Api/user";
+import { USER_DELETE_TOKENS_MUTATION } from "../Api/resolvers/user";
 import { Link } from "react-router-dom";
 
 const NavbarRightItems = ({ totalOrders: { totalOrders } }) => {

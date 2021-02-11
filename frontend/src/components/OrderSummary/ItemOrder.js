@@ -9,7 +9,7 @@ import {
   ORDER_TOTAl_ORDERS_QUERY,
   ORDER_IS_ALREADY_IN_CART_QUERY,
   ORDER_TOTAL_PRICE_QUERY,
-} from "../Api/order/order";
+} from "../Api/resolvers/order/order";
 
 const ItemOrder = ({
   orderId,

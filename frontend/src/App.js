@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useQuery } from "@apollo/client";
 import { Switch, Route } from "react-router-dom";
-import { USER_ME_QUERY } from "./components/Api/user";
+import { USER_ME_QUERY } from "./components/Api/resolvers/user";
 import { UserContext } from "./components/Context/UserContext";
 import PrivateRoute from "./components/PrivateRoute";
 
@@ -16,7 +16,7 @@ import Register from "./components/Authentication/Register";
 import "./App.css";
 
 function App() {
-  const [user, setUser] = useState("admin");
+  const [user, setUser] = useState(null);
   const userValue = useMemo(() => ({ user, setUser }), [user, setUser]);
   const { data: meQuery, loading } = useQuery(USER_ME_QUERY, {
     fetchPolicy: "network-only",
