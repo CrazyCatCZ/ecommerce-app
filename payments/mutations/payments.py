@@ -2,6 +2,7 @@ import os
 import json
 import stripe
 import graphene
+import datetime
 
 from django.http import HttpResponse
 from graphene_django.types import DjangoObjectType
@@ -64,6 +65,7 @@ class HandlePayment(graphene.Mutation):
     def mutate(root, info):
         request = info.context
         user = request.user
+        current_time = datetime.datetime.now().strftime('%d %B %Y')
         customer = return_customer(user, request)
 
         try:
@@ -76,7 +78,7 @@ class HandlePayment(graphene.Mutation):
             return HandlePayment(message="bad request")
 
         if confirm_intent['status'] == 'succeeded':
-            order = Order(user=user)
+            order = Order(user=user, date=current_time)
             user_product_orders = OrderProduct.objects.filter(customer=customer)
 
             order.save()
