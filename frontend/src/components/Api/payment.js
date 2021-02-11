@@ -7,3 +7,11 @@ export const CREATE_CHECKOUT_SESSION_MUTATION = gql`
     }
   }
 `;
+
+export const HANDLE_PAYMENT_MUTATION = gql`
+  mutation {
+    handlePayment {
+      message
+    }
+  }
+`;

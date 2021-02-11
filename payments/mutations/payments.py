@@ -1,10 +1,14 @@
 import os
-
-import graphene
+import json
 import stripe
+import graphene
+
+from django.http import HttpResponse
 from graphene_django.types import DjangoObjectType
 from graphql_jwt.decorators import login_required
 
+# Global variable
+intent = ''
 
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 PRODUCT_PRICE = os.environ.get('STRIPE_COFFEE_PRODUCT')
@@ -41,6 +45,25 @@ class CreateCheckoutSession(graphene.Mutation):
             cancel_url=f'{BASE_URL}',
         )
 
-        print(session)
+        global create_intent
+        create_intent = stripe.PaymentIntent.create(
+            amount=100,
+            currency='usd',
+            payment_method_types=['card'],
+        )
 
         return CreateCheckoutSession(session=session)
+
+
+class HandlePayment(graphene.Mutation):
+    message = graphene.String()
+
+    def mutate(root, info):
+        confirm_intent = stripe.PaymentIntent.confirm(
+            create_intent['id'],
+            payment_method="pm_card_visa",
+        )
+        if confirm_intent['status'] == 'succeeded':
+            print('success')
+
+        return HandlePayment(message="now")

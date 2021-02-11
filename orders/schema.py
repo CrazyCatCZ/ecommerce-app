@@ -17,6 +17,7 @@ class OrderQuery(graphene.ObjectType):
     order_is_already_in_cart = graphene.Boolean(product_id=graphene.ID())
     total_price_of_orders = graphene.Int()
     something_is_in_cart = graphene.Boolean()
+    orders_in_cart = graphene.List(OrderType)
 
     def resolve_all_orders(self, info):
         return Order.objects.all()
@@ -62,4 +63,7 @@ class OrderQuery(graphene.ObjectType):
         customer = return_customer(user, request)
 
         return Order.objects.filter(customer=customer).count() != 0
+
+    #def resolve_orders_in_Cart(self, info):
+        
  

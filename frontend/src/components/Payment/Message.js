@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
+import { HANDLE_PAYMENT_MUTATION } from "../Api/payment";
 import {
   ORDER_CLEAR_ORDERS_MUTATION,
   ORDER_TOTAl_ORDERS_QUERY,
@@ -31,6 +32,7 @@ const TextMessage = () => {
   const classes = useStyles();
   const history = useHistory();
   const [clearOrders] = useMutation(ORDER_CLEAR_ORDERS_MUTATION);
+  const [handlePayment] = useMutation(HANDLE_PAYMENT_MUTATION);
 
   const [open, setOpen] = useState(false);
   const [messageObject, setMessageObject] = useState({});
@@ -39,6 +41,7 @@ const TextMessage = () => {
     const query = new URLSearchParams(window.location.search);
 
     if (query.get("success") === "true") {
+      handlePayment();
       clearOrders({ refetchQueries: [{ query: ORDER_TOTAl_ORDERS_QUERY }] });
       setMessageObject({
         title: "Success!",
@@ -51,7 +54,7 @@ const TextMessage = () => {
       });
     }
     setOpen(true);
-  }, [clearOrders]);
+  }, [clearOrders, handlePayment]);
 
   return (
     <>

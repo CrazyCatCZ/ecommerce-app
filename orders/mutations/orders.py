@@ -11,8 +11,6 @@ def return_customer(user, request):
     else:
         customer = user.customer
 
-    print(customer)
-        
     return customer
 
 
