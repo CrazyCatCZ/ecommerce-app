@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import Customer
+from users.models import Customer, CustomUser
 from products.models import Product
 
 
@@ -12,14 +12,14 @@ class OrderProduct(models.Model):
         return self.quantity * self.product.price
 
     def __str__(self):
-        user = self.customer
+        customer = self.customer.session_id
+        return f'{self.quantity} amount of {self.product.title} from {customer}'
 
-        if user is not None:
-            if self.user.username:
-                username = self.user.username
-            else:
-                username = self.user.session_id
-        else: 
-            username = '-'
 
-        return f'{self.quantity} amount of {self.product.title} from {username}'
+class Order(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    products = models.ManyToManyField(Product)
+    date = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f'Order from {self.user.username}'
