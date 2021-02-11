@@ -38,22 +38,27 @@ const TextMessage = () => {
   const [messageObject, setMessageObject] = useState({});
 
   useEffect(() => {
-    const query = new URLSearchParams(window.location.search);
+    const handlePaymentMessage = async () => {
+      const query = new URLSearchParams(window.location.search);
 
-    if (query.get("success") === "true") {
-      handlePayment();
-      clearOrders({ refetchQueries: [{ query: ORDER_TOTAl_ORDERS_QUERY }] });
-      setMessageObject({
-        title: "Success!",
-        content: "Thanks for purchasing our products!",
-      });
-    } else if (query.get("success") === "false") {
-      setMessageObject({
-        title: "Error!",
-        content: "Sorry, something went wrong!",
-      });
-    }
-    setOpen(true);
+      if (query.get("success") === "true") {
+        await handlePayment();
+        await clearOrders({
+          refetchQueries: [{ query: ORDER_TOTAl_ORDERS_QUERY }],
+        });
+        setMessageObject({
+          title: "Success!",
+          content: "Thanks for purchasing our products!",
+        });
+      } else if (query.get("success") === "false") {
+        setMessageObject({
+          title: "Error!",
+          content: "Sorry, something went wrong!",
+        });
+      }
+      setOpen(true);
+    };
+    handlePaymentMessage();
   }, [clearOrders, handlePayment]);
 
   return (

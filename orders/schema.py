@@ -64,6 +64,4 @@ class OrderQuery(graphene.ObjectType):
 
         return OrderProduct.objects.filter(customer=customer).count() != 0
 
-    #def resolve_orders_in_Cart(self, info):
-        
  

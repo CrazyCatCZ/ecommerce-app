@@ -7,6 +7,9 @@ from django.http import HttpResponse
 from graphene_django.types import DjangoObjectType
 from graphql_jwt.decorators import login_required
 
+from orders.mutations.orders import return_customer
+from orders.models import OrderProduct, Order
+
 # Global variable
 intent = ''
 
@@ -59,11 +62,23 @@ class HandlePayment(graphene.Mutation):
     message = graphene.String()
 
     def mutate(root, info):
+        request = info.context
+        user = request.user
+        customer = return_customer(user, request)
+
         confirm_intent = stripe.PaymentIntent.confirm(
             create_intent['id'],
             payment_method="pm_card_visa",
         )
-        if confirm_intent['status'] == 'succeeded':
-            print('success')
 
-        return HandlePayment(message="now")
+        if confirm_intent['status'] == 'succeeded':
+            order = Order(user=user)
+            user_product_orders = OrderProduct.objects.filter(customer=customer)
+
+            order.save()
+            
+            for product_order in user_product_orders:
+                product = product_order.product
+                order.products.add(product)
+                
+        return HandlePayment(message="ok")

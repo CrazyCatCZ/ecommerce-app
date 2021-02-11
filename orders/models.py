@@ -12,7 +12,13 @@ class OrderProduct(models.Model):
         return self.quantity * self.product.price
 
     def __str__(self):
-        customer = self.customer.session_id
+        customer = self.customer
+        
+        if customer:
+            customer = self.customer.session_id
+        else:
+            customer = '-'
+
         return f'{self.quantity} amount of {self.product.title} from {customer}'
 
 
