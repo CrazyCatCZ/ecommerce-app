@@ -32,9 +32,20 @@ const SubCheckout = ({
                   );
                 }
               )}
-              <li className="list-group-item d-flex justify-content-between">
-                <span>Total (USD)</span>
-                <strong>${totalPriceOfOrders}</strong>
+              <li className="list-group-item justify-content-between">
+                <div className="d-flex justify-content-between">
+                  <span>Total (USD)</span>
+                  <strong>${totalPriceOfOrders}</strong>
+                </div>
+                <br />
+                <div className="icons-container">
+                  <i className="fab fa-cc-visa" />
+                  <i className="fab fa-cc-mastercard" />
+                  <i className="fab fa-cc-amex" />
+                  <i className="fab fa-cc-discover" />
+                  <i className="fab fa-cc-diners-club" />
+                  <i className="fab fa-cc-jcb" />
+                </div>
               </li>
             </ul>
             <button

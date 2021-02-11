@@ -16,7 +16,7 @@ import Register from "./components/Authentication/Register";
 import "./App.css";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState("admin");
   const userValue = useMemo(() => ({ user, setUser }), [user, setUser]);
   const { data: meQuery, loading } = useQuery(USER_ME_QUERY, {
     fetchPolicy: "network-only",
