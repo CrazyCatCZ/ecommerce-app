@@ -14,7 +14,8 @@ from orders.models import OrderProduct, Order
 # Global variable
 intent = ''
 
-STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+#STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_LIVE_SECRET_KEY')
 PRODUCT_PRICE = os.environ.get('STRIPE_COFFEE_PRODUCT')
 
 #BASE_URL = os.environ.get('WEBSITE_BASE_URL')
@@ -77,6 +78,7 @@ class HandlePayment(graphene.Mutation):
         except:
             return HandlePayment(message="bad request")
 
+        # User successfully ordered
         if confirm_intent['status'] == 'succeeded':
             order = Order(user=user, date=current_time)
             user_product_orders = OrderProduct.objects.filter(customer=customer)
@@ -86,7 +88,6 @@ class HandlePayment(graphene.Mutation):
             for product_order in user_product_orders:
                 product = product_order.product
                 order.products.add(product)
-        
                 
         return HandlePayment(message="ok")
         

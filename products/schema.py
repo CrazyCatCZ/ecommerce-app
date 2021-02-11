@@ -21,7 +21,7 @@ class ProductQuery(graphene.ObjectType):
 
     def resolve_products_by_category(root, info, category):
         if category == 'all':
-            return Product.objects.all()
+            return Product.objects.filter(include=True)
         else: 
             return Product.objects.filter(category=category)
 

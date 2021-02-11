@@ -37,7 +37,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // Get key from .env file
-const STRIPE_PUBLIC_KEY = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
+//const STRIPE_PUBLIC_KEY = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
+const STRIPE_PUBLIC_KEY = process.env.REACT_APP_STRIPE_LIVE_PUBLIC_KEY;
 const stripePromise = loadStripe(STRIPE_PUBLIC_KEY);
 
 const PaymentModal = ({

@@ -8,6 +8,7 @@ CATEGORY_CHOICES = (
     ('tablets', 'tablets'),
     ('headphones', 'headphones'),
     ('cameras', 'cameras'),
+    ('test', 'test'),
 )
 
 LABEL_CHOICES = (
@@ -34,6 +35,7 @@ class Product(models.Model):
     label_color = models.CharField(
         max_length=10, choices=LABEL_COLORS, blank=True, null=True
     )
+    include = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
