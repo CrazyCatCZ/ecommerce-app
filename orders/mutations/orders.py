@@ -1,7 +1,7 @@
 import graphene
 from graphene_django import DjangoObjectType
 from users.models import Customer
-from orders.models import Order
+from orders.models import OrderProduct
 from products.models import Product
 
 def return_customer(user, request):
@@ -14,16 +14,16 @@ def return_customer(user, request):
     return customer
 
 
-class OrderType(DjangoObjectType):
+class OrderProductType(DjangoObjectType):
     class Meta:
-        model = Order
+        model = OrderProduct
 
     
 class CreateOrder(graphene.Mutation):
     class Arguments:
         product_id = graphene.ID()
 
-    order = graphene.Field(OrderType)
+    order = graphene.Field(OrderProductType)
 
     def mutate(cls, info, product_id):
         request = info.context
@@ -31,7 +31,7 @@ class CreateOrder(graphene.Mutation):
         product = Product.objects.get(id=product_id)
         customer = return_customer(user, request)
 
-        order = Order.objects.create(customer=customer, product=product)
+        order = OrderProduct.objects.create(customer=customer, product=product)
         order.save()
 
         return CreateOrder(order)
@@ -45,7 +45,7 @@ class DeleteOrder(graphene.Mutation):
 
     def mutate(cls, info, order_id):
         #user = info.context.user
-        order = Order.objects.get(id=order_id)
+        order = OrderProduct.objects.get(id=order_id)
         order.delete()
 
         message = 'Success!'
@@ -56,11 +56,11 @@ class IncreaseQuantity(graphene.Mutation):
     class Arguments:
         order_id = graphene.ID()
 
-    order = graphene.Field(OrderType)
+    order = graphene.Field(OrderProductType)
 
     def mutate(cls, info, order_id):
         #user = info.context.user
-        order = Order.objects.get(id=order_id)
+        order = OrderProduct.objects.get(id=order_id)
 
         order.quantity += 1
         order.save()
@@ -72,11 +72,11 @@ class DecreaseQuantity(graphene.Mutation):
     class Arguments:
         order_id = graphene.ID()
 
-    order = graphene.Field(OrderType)
+    order = graphene.Field(OrderProductType)
 
     def mutate(cls, info, order_id):
         #user = info.context.user
-        order = Order.objects.get(id=order_id)
+        order = OrderProduct.objects.get(id=order_id)
 
         order.quantity -= 1
         order.save()
@@ -92,7 +92,7 @@ class ClearOrders(graphene.Mutation):
         user = request.user
         customer = return_customer(user, request)
 
-        user_orders = Order.objects.filter(customer=customer)
+        user_orders = OrderProduct.objects.filter(customer=customer)
 
         for order in user_orders:
             order.delete()

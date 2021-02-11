@@ -3,7 +3,7 @@ from users.models import Customer
 from products.models import Product
 
 
-class Order(models.Model):
+class OrderProduct(models.Model):
     customer = models.ForeignKey(Customer, blank=True, null=True, on_delete=models.SET_NULL)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
