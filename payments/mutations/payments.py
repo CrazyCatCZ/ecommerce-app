@@ -66,10 +66,14 @@ class HandlePayment(graphene.Mutation):
         user = request.user
         customer = return_customer(user, request)
 
-        confirm_intent = stripe.PaymentIntent.confirm(
-            create_intent['id'],
-            payment_method="pm_card_visa",
-        )
+        try:
+            confirm_intent = stripe.PaymentIntent.confirm(
+                create_intent['id'],
+                payment_method="pm_card_visa",
+            )
+
+        except:
+            return HandlePayment(message="bad request")
 
         if confirm_intent['status'] == 'succeeded':
             order = Order(user=user)
@@ -80,5 +84,7 @@ class HandlePayment(graphene.Mutation):
             for product_order in user_product_orders:
                 product = product_order.product
                 order.products.add(product)
+        
                 
         return HandlePayment(message="ok")
+        
