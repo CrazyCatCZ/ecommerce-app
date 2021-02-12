@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     'stripe',
     'corsheaders',
     "graphene_django",
+    'graphql_jwt.refresh_token.apps.RefreshTokenConfig',
 ]
 
 MIDDLEWARE = [

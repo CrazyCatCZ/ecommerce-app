@@ -14,8 +14,8 @@ from orders.models import OrderProduct, Order
 # Global variable
 intent = ''
 
-#STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
-STRIPE_SECRET_KEY = os.environ.get('STRIPE_LIVE_SECRET_KEY')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+#STRIPE_SECRET_KEY = os.environ.get('STRIPE_LIVE_SECRET_KEY')
 PRODUCT_PRICE = os.environ.get('STRIPE_COFFEE_PRODUCT')
 
 #BASE_URL = os.environ.get('WEBSITE_BASE_URL')

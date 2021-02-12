@@ -5,16 +5,14 @@ from orders.models import OrderProduct
 from products.models import Product
 
 def return_customer(user, request):
-    '''
     if user.is_anonymous:
         session_id = request.COOKIES['session-id']
         customer, created = Customer.objects.get_or_create(session_id=session_id)
     else:
         customer = user.customer
-    '''
 
     # for now
-    customer = Customer.objects.get(session_id=1)
+    #customer = Customer.objects.get(session_id=1)
 
     return customer
 
