@@ -1,19 +1,23 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, lazy, Suspense } from "react";
 import { useQuery } from "@apollo/client";
 import { Switch, Route } from "react-router-dom";
 import { USER_ME_QUERY } from "./components/Api/resolvers/user";
 import { UserContext } from "./components/Context/UserContext";
 import PrivateRoute from "./components/PrivateRoute";
+import "./App.css";
 
 import Navbar from "./components/Navbar/Navbar";
-import MainContent from "./components/MainContent/MainContent";
-import ProductDetail from "./components/ProductDetail/ProductDetail";
-import OrderSummary from "./components/OrderSummary/OrderSummary";
-import Checkout from "./components/Payment/Checkout";
-import Message from "./components/Payment/Message";
-import Login from "./components/Authentication/Login";
-import Register from "./components/Authentication/Register";
-import "./App.css";
+const MainContent = lazy(() => import("./components/MainContent/MainContent"));
+const ProductDetail = lazy(() =>
+  import("./components/ProductDetail/ProductDetail")
+);
+const OrderSummary = lazy(() =>
+  import("./components/OrderSummary/OrderSummary")
+);
+const Checkout = lazy(() => import("./components/Payment/Checkout"));
+const Message = lazy(() => import("./components/Payment/Message"));
+const Login = lazy(() => import("./components/Authentication/Login"));
+const Register = lazy(() => import("./components/Authentication/Register"));
 
 function App() {
   const [user, setUser] = useState(null);
@@ -35,19 +39,21 @@ function App() {
         {loading === false ? (
           <UserContext.Provider value={userValue}>
             <Navbar />
-            <Switch>
-              <PrivateRoute path="/checkout" component={Checkout} />
-              <Route path="/order-summary" component={OrderSummary} />
-              <Route path="/product/:id" component={ProductDetail} />
-              <Route path="/login" component={Login} />
-              <Route path="/register" component={Register} />
-              <Route path="/">
-                <>
-                  <Message />
-                  <MainContent />
-                </>
-              </Route>
-            </Switch>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Switch>
+                <PrivateRoute path="/checkout" component={Checkout} />
+                <Route path="/order-summary" component={OrderSummary} />
+                <Route path="/product/:id" component={ProductDetail} />
+                <Route path="/login" component={Login} />
+                <Route path="/register" component={Register} />
+                <Route path="/">
+                  <>
+                    <Message />
+                    <MainContent />
+                  </>
+                </Route>
+              </Switch>
+            </Suspense>
           </UserContext.Provider>
         ) : null}
       </main>
