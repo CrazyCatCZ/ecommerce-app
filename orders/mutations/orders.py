@@ -11,9 +11,6 @@ def return_customer(user, request):
     else:
         customer = user.customer
 
-    # for now
-    #customer = Customer.objects.get(session_id=1)
-
     return customer
 
 

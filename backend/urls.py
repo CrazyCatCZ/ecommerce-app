@@ -5,9 +5,10 @@ from django.urls import path, re_path
 from django.views.generic import TemplateView
 from django.views.decorators.csrf import csrf_exempt
 
+ADMIN_PATH = os.environ.get('ECOMMERCE_APP_ADMIN_PATH')
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path(f'{ADMIN_PATH}/', admin.site.urls),
     path('graphql/', csrf_exempt(jwt_cookie(GraphQLView.as_view(graphiql=True)))),
     path('robots.txt', TemplateView.as_view(template_name='static/text/robots.txt')),
     re_path('.*', TemplateView.as_view(template_name='index.html')),

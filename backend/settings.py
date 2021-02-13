@@ -1,4 +1,5 @@
 import os
+import dj_database_url 
 from pathlib import Path
 from backend.settings_files.basic import *
 from backend.settings_files.development import *
@@ -14,6 +15,9 @@ DATABASES = {
     }
 }
 
+production_db  =  dj_database_url.config(conn_max_age=600, ssl_require=True)
+DATABASES['default'].update(production_db)
+
 '''
 Connect frontend on backend
 '''
@@ -22,7 +26,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR / 'frontend' / 'build'),
+            os.path.join(BASE_DIR / 'build'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -37,6 +41,7 @@ TEMPLATES = [
     },
 ]
 
+STATIC_ROOT = os.path.join(BASE_DIR / 'staticfiles')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR / 'frontend' / 'build' / 'static'),
+    os.path.join(BASE_DIR / 'build' / 'static'),
 ]

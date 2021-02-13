@@ -1,12 +1,11 @@
 import os
 
 SECRET_KEY = os.environ.get('ECOMMERCE_APP_SECRET_KEY')
-DEBUG = True
+DEBUG = os.environ.get('ECOMMERCE_APP_DEBUG')
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'awesome-todoapp.herokuapp.com',
-    'www.awesome-todoapp.herokuapp.com'
+    'next-amazon.herokuapp.com',
 ]
 
 # Corsheaders
@@ -15,8 +14,11 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:8000',
     'http://localhost:3000',
-    'https://awesome-todoapp.herokuapp.com',
+    'https://next-amazon.com',
 ]
+
+# Whitenoise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Files definition
 ROOT_URLCONF = 'backend.urls'
