@@ -4,6 +4,7 @@ SECRET_KEY = os.environ.get('ECOMMERCE_APP_SECRET_KEY')
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
+    'localhost:3000',
     'next-amazon.herokuapp.com',
 ]
 
