@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" href="%PUBLIC_URL%/static/logos/favicon.ico" />
+    <link rel="icon" href="%PUBLIC_URL%/static/logos/main-logo.png" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="Web site created using create-react-app"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/static/logos/logo192.png" />
+    <link
+      rel="apple-touch-icon"
+      href="%PUBLIC_URL%/static/logos/main-logo.png"
+    />
 
     <link rel="manifest" href="%PUBLIC_URL%/static/json/manifest.json" />
     <meta
@@ -27,6 +30,11 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/static/service-worker.js");
+      }
+    </script>
     <script type="text/javascript" src="static/js/jquery-3.4.1.min.js"></script>
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="static/js/popper.min.js"></script>
