@@ -8,6 +8,7 @@ from backend.settings_files.graphene import *
 from backend.settings_files.production_variables import *
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+DEBUG = os.environ.get('ECOMMERCE_APP_DEBUG')
 
 # Database
 DATABASES = {
