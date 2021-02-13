@@ -1,9 +1,11 @@
 import os
 import dj_database_url 
 from pathlib import Path
+
 from backend.settings_files.basic import *
 from backend.settings_files.development import *
 from backend.settings_files.graphene import *
+from backend.settings_files.production_variables import *
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 

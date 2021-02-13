@@ -1,3 +1,4 @@
+import os
 from django.contrib import admin
 from graphene_django.views import GraphQLView
 from graphql_jwt.decorators import jwt_cookie

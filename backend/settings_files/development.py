@@ -1,7 +1,6 @@
 import os
 
 SECRET_KEY = os.environ.get('ECOMMERCE_APP_SECRET_KEY')
-DEBUG = os.environ.get('ECOMMERCE_APP_DEBUG')
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
