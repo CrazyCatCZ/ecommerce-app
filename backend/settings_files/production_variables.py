@@ -1,9 +1,9 @@
 import os
 
-DEBUG_VALUE = os.environ.get('ECOMMERCE_APP_DEBUG')
+DEBUG = os.environ.get('ECOMMERCE_APP_DEBUG')
 
 # Server is running in production
-if DEBUG_VALUE == False:
+if DEBUG == False:
     # HTTPS settings
     CSRF_COOKIE_HTTPONLY = False
     CSRF_COOKIE_SECURE = True
