@@ -1,6 +1,6 @@
 import os
 
-DEBUG_VALUE = os.environ.get('TODO_APP_DEBUG')
+DEBUG_VALUE = os.environ.get('ECOMMERCE_APP_DEBUG')
 
 # Server is running in production
 if DEBUG_VALUE == False:
